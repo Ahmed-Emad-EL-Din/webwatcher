@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Watcher | Premium Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-mode">
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="overlay">
+        <div class="login-card animate-fade-in text-center">
+            <div class="logo-large mb-2">👁️</div>
+            <h1>Web Watcher</h1>
+            <p class="text-secondary mb-3">Monitor web changes with AI-powered summaries.</p>
+            <div id="google-login-btn"></div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <header class="main-header glass animate-slide-down" style="display: none;">
+        <div class="container d-flex justify-between align-center">
+            <div class="logo">👁️ Web Watcher</div>
+            <div class="user-info d-flex align-center">
+                <span id="user-display-name" class="mr-2"></span>
+                <button id="logout-btn" class="btn btn-outline btn-sm">Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="dashboard" class="container py-4" style="display: none;">
+        <div class="dashboard-header d-flex justify-between align-center mb-4">
+            <div>
+                <h2 class="mb-1">Monitored Pages</h2>
+                <p id="monitor-count-text" class="text-secondary">You are using 0 of 10 slots.</p>
+            </div>
+            <button id="add-monitor-btn" class="btn btn-primary">
+                <span class="plus-icon">+</span> Add Monitor
+            </button>
+        </div>
+
+        <div id="monitor-limit-warning" class="alert alert-warning mb-4" style="display: none;">
+            ⚠️ You have reached the maximum limit of 10 monitored pages.
+        </div>
+
+        <div id="monitors-grid" class="monitors-grid">
+            <!-- Monitor items will be injected here -->
+            <div class="loading-state">
+                <div class="loader"></div>
+                <p>Loading your monitors...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Monitor Modal -->
+    <div id="monitor-modal" class="overlay" style="display: none;">
+        <div class="modal-card glass animate-scale-up">
+            <div class="modal-header d-flex justify-between align-center mb-3">
+                <h3>Add New Web Watcher</h3>
+                <button id="close-modal-btn" class="btn-close">&times;</button>
+            </div>
+            <form id="add-monitor-form">
+                <div class="form-group mb-3">
+                    <label for="target-url">Target URL</label>
+                    <input type="url" id="target-url" placeholder="https://example.com/page-to-watch" required>
+                </div>
+
+                <div class="form-checkbox-group mb-3">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="requires-login">
+                        <span class="checkmark"></span>
+                        Requires Login
+                    </label>
+                </div>
+
+                <div id="login-fields" class="form-sub-section animate-slide-down" style="display: none;">
+                    <div class="form-group mb-2">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Username or Email">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="form-checkbox-group mb-3">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="has-captcha">
+                        <span class="checkmark"></span>
+                        Has Captcha / Use Cookies
+                    </label>
+                </div>
+
+                <div id="captcha-fields" class="form-sub-section animate-slide-down" style="display: none;">
+                    <div class="form-group mb-2">
+                        <label for="captcha-json">Cookies JSON Array</label>
+                        <textarea id="captcha-json" rows="4"
+                            placeholder='[{"name": "session", "value": "..."}]'></textarea>
+                        <small class="text-secondary">Paste a JSON array of cookies for the session.</small>
+                    </div>
+                </div>
+
+                <div class="form-checkbox-group mb-3">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="enable-notifications" checked>
+                        <span class="checkmark"></span>
+                        Enable Email Notifications
+                    </label>
+                </div>
+
+                <div class="form-checkbox-group mb-3">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="enable-telegram">
+                        <span class="checkmark"></span>
+                        Enable Telegram Notifications
+                    </label>
+                </div>
+
+                <div id="telegram-fields" class="form-sub-section animate-slide-down mb-4" style="display: none;">
+                    <div class="form-group mb-2">
+                        <label for="telegram-chat-id">Telegram Chat ID</label>
+                        <input type="text" id="telegram-chat-id" placeholder="e.g. 123456789">
+                        <small class="text-secondary">Get this from @userinfobot or your own bot.</small>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-end">
+                    <button type="submit" class="btn btn-primary btn-block">Start Watching</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

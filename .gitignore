@@ -1,0 +1,25 @@
+# Environment Variables
+.env
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Distribution / Build
+public/dist/
+.netlify/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db

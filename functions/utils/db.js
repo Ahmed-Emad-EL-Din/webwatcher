@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'development') {
 
 async function getDb() {
   const connectedClient = await clientPromise;
-  return connectedClient.db('webwatcher');
+  return connectedClient.db('webspider');
 }
 
 module.exports = { getDb };

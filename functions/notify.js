@@ -32,10 +32,10 @@ exports.handler = async (event, context) => {
             });
 
             const mailOptions = {
-                from: `"Web Watcher Service" <${process.env.EMAIL_HOST_USER}>`,
+                from: `"Webspider Service" <${process.env.EMAIL_HOST_USER}>`,
                 to: user_email,
                 subject: `🚨 Change Detected: ${url}`,
-                text: `Web Watchers has detected significant changes on the page: ${url}\n\nAI Summary:\n${summary}\n\nCheck your dashboard for details.`,
+                text: `Webspiders has detected significant changes on the page: ${url}\n\nAI Summary:\n${summary}\n\nCheck your dashboard for details.`,
             };
 
             try {
@@ -52,7 +52,7 @@ exports.handler = async (event, context) => {
             const botToken = process.env.TELEGRAM_BOT_TOKEN;
             const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-            const message = `🚨 *Web Watcher Update*\n\n*Page:* ${url}\n\n*AI Summary:*\n${summary}`;
+            const message = `🚨 *Webspider Update*\n\n*Page:* ${url}\n\n*AI Summary:*\n${summary}`;
 
             try {
                 const response = await fetch(telegramUrl, {

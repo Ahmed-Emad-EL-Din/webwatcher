@@ -1,6 +1,6 @@
-# Web Watcher - Technical Documentation & Walkthrough
+# Webspider - Technical Documentation & Walkthrough
 
-Web Watcher is a full-stack automated monitoring platform that tracks webpage changes, generates AI-powered summaries of significant updates using Google Gemini, and notifies users via Email and Telegram.
+Webspider is a full-stack automated monitoring platform that tracks webpage changes, generates AI-powered summaries of significant updates using Google Gemini, and notifies users via Email and Telegram.
 
 ## 🏗️ Architecture Overview
 
@@ -49,7 +49,7 @@ The following environment variables are required across both Netlify and GitHub:
 
 ## 🚀 Comprehensive Deployment Guide (AI & Human Friendly)
 
-This section provides a rigorous, step-by-step guide for deploying the Web Watcher ecosystem. It is structured to be easily parsable by an AI agent assisting you, or by a human developer.
+This section provides a rigorous, step-by-step guide for deploying the Webspider ecosystem. It is structured to be easily parsable by an AI agent assisting you, or by a human developer.
 
 ### Phase 1: Database Provisioning (MongoDB Atlas)
 1. **Create Account/Login**: Navigate to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and authenticate.
@@ -58,10 +58,10 @@ This section provides a rigorous, step-by-step guide for deploying the Web Watch
 4. **Network Access**: Go to **Network Access** > **Add IP Address**. Allow access from anywhere (`0.0.0.0/0`) since Netlify and GitHub Actions IP addresses are dynamic.
 5. **Get Connection String**: Go back to **Databases** > **Connect** > **Drivers** (Node.js/Python). Copy the URI string. It will look like: 
    `mongodb+srv://<username>:<password>@clusterX.mongodb.net/?retryWrites=true&w=majority`
-6. **Assign Database Name**: In the connection string, insert the database name `webwatcher` before the `?`, like so: `...mongodb.net/webwatcher?retryWrites...`. This exact string is your `MONGO_URI`.
+6. **Assign Database Name**: In the connection string, insert the database name `webspider` before the `?`, like so: `...mongodb.net/webspider?retryWrites...`. This exact string is your `MONGO_URI`.
 
 ### Phase 2: Authentication Configuration (Google OAuth)
-1. **Google Cloud Console**: Navigate to [Google Cloud](https://console.cloud.google.com/). Create a new generic "Project" (e.g., "Web Watcher App").
+1. **Google Cloud Console**: Navigate to [Google Cloud](https://console.cloud.google.com/). Create a new generic "Project" (e.g., "Webspider App").
 2. **OAuth Consent Screen**: Search and go to "OAuth consent screen". Choose "External" and fill out the required App Name and Support Email fields.
 3. **Create Credentials**: Go to **Credentials** > **Create Credentials** > **OAuth client ID**.
 4. **App Type**: Select "Web application".
@@ -77,12 +77,12 @@ This section provides a rigorous, step-by-step guide for deploying the Web Watch
 #### Telegram Bot Setup
 1. **Bot Creation**: Open Telegram App. Search for `@BotFather`. Start a chat and send `/newbot`.
 2. **Bot Token**: Follow the prompts to name your bot. Upon success, `@BotFather` will provide an HTTP API Token. This string is your `TELEGRAM_BOT_TOKEN`.
-3. **Automated Linking (Magic!)**: You do **not** need to manually find Chat IDs or configure Webhooks anymore! The Web Watcher application now features a seamless deep-linking integration.
+3. **Automated Linking (Magic!)**: You do **not** need to manually find Chat IDs or configure Webhooks anymore! The Webspider application now features a seamless deep-linking integration.
    - When a user clicks "Add Monitor" and enables Telegram, they simply click the **"Connect Telegram App"** button.
    - Behind the scenes, our `telegram-config` Netlify function automatically sets up a secure webhook with Telegram.
    - The user opens Telegram, clicks "Start", and the dashboard instantly auto-fills their Chat ID via background polling.
 1. **App Passwords**: For security, do not use your primary account password. If using Gmail, go to Google Account Manage > Security > 2-Step Verification > App passwords.
-2. **Generate**: Create a new app password for "Other (Custom name)" and call it "Web Watcher".
+2. **Generate**: Create a new app password for "Other (Custom name)" and call it "Webspider".
 3. **Credentials**:
    - `EMAIL_HOST`: `smtp.gmail.com`
    - `EMAIL_PORT`: `587`
@@ -90,7 +90,7 @@ This section provides a rigorous, step-by-step guide for deploying the Web Watch
    - `EMAIL_HOST_PASSWORD`: The 16-character app password generated above.
 
 ### Phase 4: Frontend & API Hosting (Netlify)
-1. **Connect Git Repository**: Log into Netlify. Click **Add new site** > **Import an existing project** > **GitHub**. Select the `webwatcher` repository.
+1. **Connect Git Repository**: Log into Netlify. Click **Add new site** > **Import an existing project** > **GitHub**. Select the `webspider` repository.
 2. **Build Settings**: 
    - **Base directory**: Leave blank.
    - `Publish directory`: `dist` (Vite's default build output)
@@ -116,7 +116,7 @@ This section provides a rigorous, step-by-step guide for deploying the Web Watch
 5. **Activate Automation**:
    - Go to the **Actions** tab in the GitHub repo.
    - Click "I understand my workflows, go ahead and enable them" (if prompted).
-   - You can manually trigger the "Web Watcher Scraper" workflow to test it immediately.
+   - You can manually trigger the "Webspider Scraper" workflow to test it immediately.
    - Otherwise, the cron job (`watcher.yml`) will run automatically every 10 minutes.
 
 ### 📤 Phase 6: Syncing Local Code to GitHub (For Multi-Account Users)
@@ -134,7 +134,7 @@ If you are developing locally and need to push to a specific GitHub profile:
    ```
 3. Add remote and push:
    ```bash
-   git remote add origin https://github.com/TARGET_USERNAME/webwatcher.git
+   git remote add origin https://github.com/TARGET_USERNAME/webspider.git
    git branch -M main
    git push -u origin main
    ```

@@ -1,6 +1,6 @@
 @echo off
 echo =======================================================
-echo Web Watcher - Full Local Testing Automation Script
+echo Webspider - Full Local Testing Automation Script
 echo =======================================================
 
 echo.
@@ -30,7 +30,7 @@ echo -------------------------------------------------------
 echo.
 
 REM Start Python scraper in a new minimized command window
-start "Web Watcher Bot" cmd /c "echo Starting Python Scraper Bot (Runs every 20 seconds for testing)... & :loop & py scraper.py & timeout /t 20 >nul & goto loop"
+start "Webspider Bot" cmd /c "echo Starting Python Scraper Bot (Runs every 20 seconds for testing)... & :loop & py scraper.py & timeout /t 20 >nul & goto loop"
 
 REM Start Netlify in this main window
 echo Starting Local Netlify Server...

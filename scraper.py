@@ -189,11 +189,16 @@ async def process_monitor(monitor, context, monitors_col, semaphore):
         
         if monitor.get('is_first_run'):
             print(f"First run for {monitor['url']}. Saving base text.")
+            
+            # For the first run, generate an initial baseline summary
+            summary = await summarize_changes("No previous content. This is the first time the page is being scanned.", new_text)
+            
             monitors_col.update_one(
                 {"_id": monitor["_id"]},
                 {
                     "$set": {
                         "last_scraped_text": new_text,
+                        "latest_ai_summary": summary,
                         "is_first_run": False,
                         "last_updated_timestamp": datetime.datetime.now()
                     }

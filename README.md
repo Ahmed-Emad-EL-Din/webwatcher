@@ -77,9 +77,8 @@ This section provides a rigorous, step-by-step guide for deploying the Web Watch
 #### Telegram Bot Setup
 1. **Bot Creation**: Open Telegram App. Search for `@BotFather`. Start a chat and send `/newbot`.
 2. **Bot Token**: Follow the prompts to name your bot. Upon success, `@BotFather` will provide an HTTP API Token. This string is your `TELEGRAM_BOT_TOKEN`.
-3. **User Chat ID**: To receive messages, users of your app must find their unique Chat ID. They can do this by messaging a bot like `@userinfobot` on Telegram.
-
-#### SMTP Email Setup (e.g., Gmail)
+3. **User Chat ID**: To receive messages, users of your app must find their unique Chat ID. They can do this by messaging a bot like `@userinfobot` on Telegram. 
+   - **Where to put it**: Unlike the Bot Token (which is a secret environment variable), the **Chat ID is entered directly into the Web Watcher Dashboard** when a user clicks "Add Monitor" and enables Telegram notifications.
 1. **App Passwords**: For security, do not use your primary account password. If using Gmail, go to Google Account Manage > Security > 2-Step Verification > App passwords.
 2. **Generate**: Create a new app password for "Other (Custom name)" and call it "Web Watcher".
 3. **Credentials**:

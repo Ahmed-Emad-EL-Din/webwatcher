@@ -46,6 +46,7 @@ The following environment variables are required across both Netlify and GitHub:
 | `EMAIL_PORT` | SMTP Port (587 or 465) | Netlify |
 | `EMAIL_HOST_USER` | SMTP Username | Netlify |
 | `EMAIL_HOST_PASSWORD`| SMTP App-Specific Password | Netlify |
+| `WEBHOOK_SECRET` | Custom security password to protect your `notify` API endpoint | Netlify & GitHub |
 
 ## 🚀 Comprehensive Deployment Guide (AI & Human Friendly)
 

@@ -8,7 +8,7 @@ let cachedClient = null;
 
 async function connectToDatabase() {
     if (cachedClient) {
-        return cachedClient.db('webspider');
+        return cachedClient.db('thewebspider');
     }
     const client = new MongoClient(process.env.MONGO_URI, {
         useNewUrlParser: true,
@@ -16,7 +16,7 @@ async function connectToDatabase() {
     });
     await client.connect();
     cachedClient = client;
-    return client.db('webspider');
+    return client.db('thewebspider');
 }
 
 exports.handler = async (event, context) => {
@@ -52,7 +52,7 @@ exports.handler = async (event, context) => {
                     // Send an acknowledgment back to the user via Telegram
                     const botToken = process.env.TELEGRAM_BOT_TOKEN;
                     if (botToken) {
-                        const messageText = "✅ Authentication Successful!\n\nYour Telegram account is now linked to the Webspider Dashboard. Your unique Chat ID has been automatically populated.\n\nYou can close this chat and return to the dashboard.";
+                        const messageText = "✅ Authentication Successful!\n\nYour Telegram account is now linked to the TheWebspider Dashboard. Your unique Chat ID has been automatically populated.\n\nYou can close this chat and return to the dashboard.";
 
                         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                             method: 'POST',
@@ -73,7 +73,7 @@ exports.handler = async (event, context) => {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             chat_id: chat_id,
-                            text: "Welcome to Webspider Bot! Start the connection process from the dashboard website to link your account."
+                            text: "Welcome to TheWebspider Bot! Start the connection process from the dashboard website to link your account."
                         })
                     });
                 }

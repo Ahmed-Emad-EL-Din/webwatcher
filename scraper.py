@@ -235,7 +235,7 @@ async def process_monitor(monitor, context, monitors_col, semaphore):
 
 async def run_worker():
     client = MongoClient(MONGO_URI)
-    db = client.get_database("webspider")
+    db = client.get_database("thewebspider")
     monitors_col = db.monitors
     
     monitors = list(monitors_col.find({}))

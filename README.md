@@ -1,6 +1,6 @@
-# Webspider - Technical Documentation & Walkthrough
+# TheWebspider - Technical Documentation & Walkthrough
 
-Webspider is a full-stack automated monitoring platform that tracks webpage changes, generates AI-powered summaries of significant updates using Google Gemini, and notifies users via Email and Telegram.
+TheWebspider is a full-stack automated monitoring platform that tracks webpage changes, generates AI-powered summaries of significant updates using Google Gemini, and notifies users via Email and Telegram.
 
 ## 🏗️ Architecture Overview
 
@@ -50,7 +50,7 @@ The following environment variables are required across both Netlify and GitHub:
 
 ## 🚀 Comprehensive Deployment Guide (AI & Human Friendly)
 
-This section provides a rigorous, step-by-step guide for deploying the Webspider ecosystem. It is structured to be easily parsable by an AI agent assisting you, or by a human developer.
+This section provides a rigorous, step-by-step guide for deploying the TheWebspider ecosystem. It is structured to be easily parsable by an AI agent assisting you, or by a human developer.
 
 ### Phase 1: Database Provisioning (MongoDB Atlas)
 1. **Create Account/Login**: Navigate to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and authenticate.
@@ -62,13 +62,13 @@ This section provides a rigorous, step-by-step guide for deploying the Webspider
 6. **Construct Your `MONGO_URI`**:
    - Replace `<username>` with the database user you created in Step 3.
    - Replace `<password>` with the password you created in Step 3. (Ensure you remove the `<` and `>` brackets).
-   - **Crucial Step**: You must tell MongoDB which specific database to use. By default, there is nothing between `.net/` and `?retryWrites`. Insert the word `webspider` right there.
+   - **Crucial Step**: You must tell MongoDB which specific database to use. By default, there is nothing between `.net/` and `?retryWrites`. Insert the word `thewebspider` right there.
    - Your final, complete string should look exactly like this example:
-     `mongodb+srv://ahmed_admin:MySuperSecretPass@cluster0.abcde.mongodb.net/webspider?retryWrites=true&w=majority`
+     `mongodb+srv://ahmed_admin:MySuperSecretPass@cluster0.abcde.mongodb.net/thewebspider?retryWrites=true&w=majority`
    - **Save this final string**. This is your `MONGO_URI` environment variable.
 
 ### Phase 2: Authentication Configuration (Google OAuth)
-1. **Google Cloud Console**: Navigate to [Google Cloud](https://console.cloud.google.com/). Create a new generic "Project" (e.g., "Webspider App").
+1. **Google Cloud Console**: Navigate to [Google Cloud](https://console.cloud.google.com/). Create a new generic "Project" (e.g., "TheWebspider App").
 2. **OAuth Consent Screen**: Search and go to "OAuth consent screen". Choose "External" and fill out the required App Name and Support Email fields.
 3. **Create Credentials**: Go to **Credentials** > **Create Credentials** > **OAuth client ID**.
 4. **App Type**: Select "Web application".
@@ -84,12 +84,12 @@ This section provides a rigorous, step-by-step guide for deploying the Webspider
 #### Telegram Bot Setup
 1. **Bot Creation**: Open Telegram App. Search for `@BotFather`. Start a chat and send `/newbot`.
 2. **Bot Token**: Follow the prompts to name your bot. Upon success, `@BotFather` will provide an HTTP API Token. This string is your `TELEGRAM_BOT_TOKEN`.
-3. **Automated Linking (Magic!)**: You do **not** need to manually find Chat IDs or configure Webhooks anymore! The Webspider application now features a seamless deep-linking integration.
+3. **Automated Linking (Magic!)**: You do **not** need to manually find Chat IDs or configure Webhooks anymore! The TheWebspider application now features a seamless deep-linking integration.
    - When a user clicks "Add Monitor" and enables Telegram, they simply click the **"Connect Telegram App"** button.
    - Behind the scenes, our `telegram-config` Netlify function automatically sets up a secure webhook with Telegram.
    - The user opens Telegram, clicks "Start", and the dashboard instantly auto-fills their Chat ID via background polling.
 1. **App Passwords**: For security, do not use your primary account password. If using Gmail, go to Google Account Manage > Security > 2-Step Verification > App passwords.
-2. **Generate**: Create a new app password for "Other (Custom name)" and call it "Webspider".
+2. **Generate**: Create a new app password for "Other (Custom name)" and call it "TheWebspider".
 3. **Credentials**:
    - `EMAIL_HOST`: `smtp.gmail.com`
    - `EMAIL_PORT`: `587`
@@ -97,7 +97,7 @@ This section provides a rigorous, step-by-step guide for deploying the Webspider
    - `EMAIL_HOST_PASSWORD`: The 16-character app password generated above.
 
 ### Phase 4: Frontend & API Hosting (Netlify)
-1. **Connect Git Repository**: Log into Netlify. Click **Add new site** > **Import an existing project** > **GitHub**. Select the `webspider` repository.
+1. **Connect Git Repository**: Log into Netlify. Click **Add new site** > **Import an existing project** > **GitHub**. Select the `thewebspider` repository.
 2. **Build Settings**: 
    - **Base directory**: Leave blank.
    - `Publish directory`: `dist` (Vite's default build output)
@@ -123,7 +123,7 @@ This section provides a rigorous, step-by-step guide for deploying the Webspider
 5. **Activate Automation**:
    - Go to the **Actions** tab in the GitHub repo.
    - Click "I understand my workflows, go ahead and enable them" (if prompted).
-   - You can manually trigger the "Webspider Scraper" workflow to test it immediately.
+   - You can manually trigger the "TheWebspider Scraper" workflow to test it immediately.
    - Otherwise, the cron job (`spider.yml`) will run automatically every 10 minutes.
 
 ### 📤 Phase 6: Syncing Local Code to GitHub (For Multi-Account Users)
@@ -141,7 +141,7 @@ If you are developing locally and need to push to a specific GitHub profile:
    ```
 3. Add remote and push:
    ```bash
-   git remote add origin https://github.com/TARGET_USERNAME/webspider.git
+   git remote add origin https://github.com/TARGET_USERNAME/thewebspider.git
    git branch -M main
    git push -u origin main
    ```

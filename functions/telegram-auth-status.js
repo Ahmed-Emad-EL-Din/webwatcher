@@ -4,7 +4,7 @@ let cachedClient = null;
 
 async function connectToDatabase() {
     if (cachedClient) {
-        return cachedClient.db('webspider');
+        return cachedClient.db('thewebspider');
     }
     const client = new MongoClient(process.env.MONGO_URI, {
         useNewUrlParser: true,
@@ -12,7 +12,7 @@ async function connectToDatabase() {
     });
     await client.connect();
     cachedClient = client;
-    return client.db('webspider');
+    return client.db('thewebspider');
 }
 
 exports.handler = async (event, context) => {

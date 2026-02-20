@@ -57,9 +57,15 @@ This section provides a rigorous, step-by-step guide for deploying the Webspider
 2. **Deploy Cluster**: Create a new free-tier cluster (M0 Sandbox).
 3. **Database User Setup**: Go to **Database Access** > **Add New Database User**. Choose "Password" authentication. Note the `<username>` and `<password>`.
 4. **Network Access**: Go to **Network Access** > **Add IP Address**. Allow access from anywhere (`0.0.0.0/0`) since Netlify and GitHub Actions IP addresses are dynamic.
-5. **Get Connection String**: Go back to **Databases** > **Connect** > **Drivers** (Node.js/Python). Copy the URI string. It will look like: 
+5. **Get Connection String**: Go back to **Databases** > **Connect** > **Drivers** (Node.js/Python). Copy the URI string. It will look like this template: 
    `mongodb+srv://<username>:<password>@clusterX.mongodb.net/?retryWrites=true&w=majority`
-6. **Assign Database Name**: In the connection string, insert the database name `webspider` before the `?`, like so: `...mongodb.net/webspider?retryWrites...`. This exact string is your `MONGO_URI`.
+6. **Construct Your `MONGO_URI`**:
+   - Replace `<username>` with the database user you created in Step 3.
+   - Replace `<password>` with the password you created in Step 3. (Ensure you remove the `<` and `>` brackets).
+   - **Crucial Step**: You must tell MongoDB which specific database to use. By default, there is nothing between `.net/` and `?retryWrites`. Insert the word `webspider` right there.
+   - Your final, complete string should look exactly like this example:
+     `mongodb+srv://ahmed_admin:MySuperSecretPass@cluster0.abcde.mongodb.net/webspider?retryWrites=true&w=majority`
+   - **Save this final string**. This is your `MONGO_URI` environment variable.
 
 ### Phase 2: Authentication Configuration (Google OAuth)
 1. **Google Cloud Console**: Navigate to [Google Cloud](https://console.cloud.google.com/). Create a new generic "Project" (e.g., "Webspider App").

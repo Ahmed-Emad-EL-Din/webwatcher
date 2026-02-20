@@ -393,7 +393,7 @@ input:focus, textarea:focus {
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
-    background-image: url('/spider-logo.png');
+    background-image: url('/spider-bg-logo.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

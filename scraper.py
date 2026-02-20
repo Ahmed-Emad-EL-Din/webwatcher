@@ -206,6 +206,9 @@ async def process_monitor(monitor, context, monitors_col, semaphore):
                     }
                 }
             )
+            
+            # Send notification for the first run
+            await trigger_notifications(monitor, summary)
         else:
             old_text = monitor.get('last_scraped_text', '')
             

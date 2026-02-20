@@ -62,6 +62,17 @@ if (interactiveBg) {
 window.onload = function () {
     Toast.init();
 
+    const storedProfile = localStorage.getItem('userProfile');
+    if (storedProfile) {
+        try {
+            userProfile = JSON.parse(storedProfile);
+            showDashboard();
+            return; // Skip Google init if already logged in
+        } catch (e) {
+            localStorage.removeItem('userProfile');
+        }
+    }
+
     // Check if the script loaded properly. If not, don't crash the whole UI.
     if (window.google) {
         google.accounts.id.initialize({
@@ -85,6 +96,7 @@ function handleCredentialResponse(response) {
             email: responsePayload.email,
             picture: responsePayload.picture
         };
+        localStorage.setItem('userProfile', JSON.stringify(userProfile));
         showDashboard();
     } catch (e) {
         Toast.error("Authentication failed. Please try again.");
@@ -115,6 +127,7 @@ function updateLimitUI(count, limit) {
 
 function logout() {
     userProfile = null;
+    localStorage.removeItem('userProfile');
     loginOverlay.style.display = 'flex';
     mainHeader.style.display = 'none';
     dashboardEl.style.display = 'none';

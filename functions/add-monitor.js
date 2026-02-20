@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
             telegram_notifications_enabled: !!telegram_notifications_enabled,
             telegram_chat_id: telegram_chat_id || '',
             last_scraped_text: '',
-            latest_ai_summary: 'Pending first run...',
+            latest_ai_summary: 'Waiting for the first scan...',
             is_first_run: true,
             last_updated_timestamp: new Date()
         };

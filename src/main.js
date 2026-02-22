@@ -128,7 +128,7 @@ async function showDashboard() {
     dashboardEl.style.display = 'block';
 
     // Switch user display layout
-    userDisplayName.style.display = 'none'; // Hide old element if it still exists
+    if (userDisplayName) userDisplayName.style.display = 'none'; // Hide old element if it still exists
     document.getElementById('user-actions').style.display = 'flex';
     document.getElementById('user-email-display').textContent = userProfile.email;
 

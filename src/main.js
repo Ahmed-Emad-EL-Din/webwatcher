@@ -1,7 +1,7 @@
 import { decodeJwtResponse } from './auth';
 import { Dashboard } from './components/Dashboard';
 import { Toast } from './components/Toast';
-import { addMonitorApi, editMonitorApi, checkAdminApi, getAdminStatsApi, toggleMonitorApi } from './api';
+import { addMonitorApi, editMonitorApi, checkAdminApi, getAdminStatsApi, toggleMonitorApi, deleteAccountApi } from './api';
 
 // Globals
 let userProfile = null;
@@ -481,7 +481,10 @@ async function loadAdminStats() {
                     ${hasFailed ? monitor.last_error : (monitor.last_error_time ? 'Recovered' : '-')}
                 </td>
                 <td>
-                    <button class="btn btn-sm ${isPaused ? 'btn-primary' : 'btn-outline'}" onclick="window.toggleAdminPause('${monitor._id}', ${!isPaused})" style="font-size:0.75rem;">${pauseText}</button>
+                    <div style="display:flex; gap:4px;">
+                        <button class="btn btn-sm ${isPaused ? 'btn-primary' : 'btn-outline'}" onclick="window.toggleAdminPause('${monitor._id}', ${!isPaused})" style="font-size:0.75rem;">${pauseText}</button>
+                        <button class="btn btn-sm btn-outline" style="font-size:0.75rem; border-color:var(--danger); color:var(--danger);" onclick="window.deleteAdminAccount('${monitor.user_email}')" title="Delete ALL monitors for this user">Delete User</button>
+                    </div>
                 </td>
             `;
             tbody.appendChild(tr);
@@ -500,5 +503,20 @@ window.toggleAdminPause = async (id, setPaused) => {
         await loadAdminStats();
     } catch (e) {
         Toast.error("Action failed");
+    }
+};
+
+window.deleteAdminAccount = async (targetEmail) => {
+    if (!confirm(`🚨 DANGER: Are you sure you want to delete the account for ${targetEmail}? This will permanently delete ALL their tracked monitors. This action cannot be undone.`)) {
+        return;
+    }
+
+    try {
+        const result = await deleteAccountApi(userProfile.email, targetEmail);
+        Toast.success(result.message || "Account deleted successfully");
+        await loadAdminStats();
+    } catch (e) {
+        console.error(e);
+        Toast.error(e.message || "Failed to delete account");
     }
 };

@@ -60,3 +60,13 @@ export async function toggleMonitorApi(adminEmail, id, isPaused) {
     if (!response.ok) throw new Error('Failed to toggle monitor state');
     return await response.json();
 }
+
+export async function deleteAccountApi(adminEmail, targetEmail) {
+    const response = await fetch('/.netlify/functions/delete-account', {
+        method: 'POST',
+        body: JSON.stringify({ admin_email: adminEmail, target_email: targetEmail })
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Failed to delete account');
+    return result;
+}

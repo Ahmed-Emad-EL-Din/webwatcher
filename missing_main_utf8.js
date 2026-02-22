@@ -1,13 +1,12 @@
-import { decodeJwtResponse } from './auth';
+﻿import { decodeJwtResponse } from './auth';
 import { Dashboard } from './components/Dashboard';
 import { Toast } from './components/Toast';
-import { addMonitorApi, editMonitorApi, checkAdminApi, getAdminStatsApi, toggleMonitorApi } from './api';
+import { addMonitorApi } from './api';
 
 // Globals
 let userProfile = null;
 let dashboardComp = null;
 const LIMIT = 10;
-let isAdminUser = false;
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || "REPLACE_WITH_YOUR_CLIENT_ID.apps.googleusercontent.com";
 
 // DOM Elements
@@ -22,8 +21,6 @@ const monitorLimitWarning = document.getElementById('monitor-limit-warning');
 
 // Modal Elements
 const monitorModal = document.getElementById('monitor-modal');
-const modalTitle = document.getElementById('modal-title');
-const submitBtn = document.getElementById('submit-monitor-btn');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const addMonitorForm = document.getElementById('add-monitor-form');
 const aiFocusNoteInput = document.getElementById('ai-focus-note');
@@ -47,14 +44,6 @@ const deepCrawlModal = document.getElementById('deep-crawl-modal');
 const closeDeepCrawlBtn = document.getElementById('close-deep-crawl-btn');
 const cancelDeepCrawlBtn = document.getElementById('cancel-deep-crawl-btn');
 const confirmDeepCrawlBtn = document.getElementById('confirm-deep-crawl-btn');
-
-// Form Modifiers
-const targetUrlInput = document.getElementById('target-url');
-const usernameInput = document.getElementById('username');
-const passwordInput = document.getElementById('password');
-const captchaJsonInput = document.getElementById('captcha-json');
-const enableNotificationsCheck = document.getElementById('enable-notifications');
-let editingMonitorId = null; // null = Add Mode, string = Edit Mode
 
 // Telegram State
 let telegramPollingInterval = null;
@@ -102,45 +91,29 @@ window.onload = function () {
     }
 };
 
-// --- Auth & Init ---
-window.handleCredentialResponse = async (response) => {
+function handleCredentialResponse(response) {
     try {
-        const payload = decodeJwtResponse(response.credential);
+        const responsePayload = decodeJwtResponse(response.credential);
         userProfile = {
-            name: payload.name,
-            email: payload.email,
-            picture: payload.picture
+            name: responsePayload.name,
+            email: responsePayload.email,
+            picture: responsePayload.picture
         };
         localStorage.setItem('userProfile', JSON.stringify(userProfile));
-
-        // Use standard load function
-        await showDashboard();
-
-    } catch (error) {
-        console.error("Login failed:", error);
-        Toast.error("Login failed. Please try again.");
+        showDashboard();
+    } catch (e) {
+        Toast.error("Authentication failed. Please try again.");
     }
-};
+}
 
-async function showDashboard() {
+function showDashboard() {
     loginOverlay.style.display = 'none';
     mainHeader.style.display = 'block';
     dashboardEl.style.display = 'block';
-
-    // Switch user display layout
-    if (userDisplayName) userDisplayName.style.display = 'none'; // Hide old element if it still exists
-    document.getElementById('user-actions').style.display = 'flex';
-    document.getElementById('user-email-display').textContent = userProfile.email;
-
+    userDisplayName.textContent = userProfile.name;
     Toast.success(`Welcome, ${userProfile.name}`);
 
     dashboardComp = new Dashboard(userProfile, updateLimitUI);
-
-    // Check Admin Status
-    isAdminUser = await checkAdminApi(userProfile.email);
-    if (isAdminUser) {
-        document.getElementById('admin-panel-btn').style.display = 'block';
-    }
     dashboardComp.load();
 }
 
@@ -167,92 +140,10 @@ function logout() {
 logoutBtn.addEventListener('click', logout);
 
 // --- Modal Logic ---
-function resetModalContent() {
-    editingMonitorId = null;
-    modalTitle.textContent = "Add New TheWebspider";
-    submitBtn.textContent = "Start Watching";
-    addMonitorForm.reset();
-    loginFields.style.display = 'none';
-    captchaFields.style.display = 'none';
-    telegramFields.style.display = 'none';
-    deepCrawlOptions.style.display = 'none';
-    deepCrawlAlert.style.display = 'none';
-
-    if (telegramPollingInterval) clearInterval(telegramPollingInterval);
-    telegramChatIdInput.value = '';
-    telegramConnectPrompt.style.display = 'block';
-
-    let p = document.querySelector('#telegram-connect-prompt p');
-    if (p) p.style.display = 'block';
-
-    telegramConnectBtn.className = "btn btn-outline btn-block";
-    telegramConnectBtn.style.backgroundColor = "";
-    telegramConnectBtn.style.borderColor = "";
-    telegramConnectBtn.style.color = "";
-    telegramConnectBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 5L2 12.5L9 14M21 5L18.5 20L9 14M21 5L9 14M9 14V19.5L13.5 15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Connect Telegram App
-    `;
-}
-
 addMonitorBtn.addEventListener('click', () => {
     if (dashboardComp && dashboardComp.monitors.length < LIMIT) {
-        resetModalContent();
         monitorModal.style.display = 'flex';
     }
-});
-
-window.addEventListener('open-edit-modal', (e) => {
-    const monitor = e.detail;
-    resetModalContent();
-
-    editingMonitorId = monitor._id;
-    modalTitle.textContent = "Edit Webspider";
-    submitBtn.textContent = "Save Changes";
-
-    targetUrlInput.value = monitor.url;
-    if (monitor.ai_focus_note) aiFocusNoteInput.value = monitor.ai_focus_note;
-
-    if (monitor.deep_crawl) {
-        deepCrawlCheck.checked = true;
-        deepCrawlOptions.style.display = 'block';
-        if (monitor.deep_crawl_depth) deepCrawlDepthInput.value = monitor.deep_crawl_depth;
-    }
-
-    if (monitor.requires_login) {
-        requiresLoginCheck.checked = true;
-        loginFields.style.display = 'block';
-        if (monitor.username) usernameInput.value = monitor.username;
-        if (monitor.password) passwordInput.value = monitor.password;
-    }
-
-    if (monitor.has_captcha) {
-        hasCaptchaCheck.checked = true;
-        captchaFields.style.display = 'block';
-        if (monitor.captcha_json) captchaJsonInput.value = typeof monitor.captcha_json === 'string' ? monitor.captcha_json : JSON.stringify(monitor.captcha_json);
-    }
-
-    enableNotificationsCheck.checked = !!monitor.email_notifications_enabled;
-
-    if (monitor.telegram_notifications_enabled) {
-        enableTelegramCheck.checked = true;
-        telegramFields.style.display = 'block';
-        telegramChatIdInput.value = monitor.telegram_chat_id || '';
-
-        // Show as connected since we already have the ID
-        if (monitor.telegram_chat_id) {
-            telegramConnectBtn.className = "btn btn-block";
-            telegramConnectBtn.style.backgroundColor = "var(--success)";
-            telegramConnectBtn.style.color = "white";
-            telegramConnectBtn.innerHTML = `✅ Connected successfully! (ID: ${monitor.telegram_chat_id})`;
-            let p = document.querySelector('#telegram-connect-prompt p');
-            if (p) p.style.display = 'none';
-        }
-    }
-
-    monitorModal.style.display = 'flex';
 });
 
 closeModalBtn.addEventListener('click', () => {
@@ -360,7 +251,7 @@ enableTelegramCheck.addEventListener('change', async (e) => {
                     telegramConnectBtn.style.borderColor = "var(--success)";
                     telegramConnectBtn.style.color = "white";
                     telegramConnectBtn.style.pointerEvents = "none";
-                    telegramConnectBtn.innerHTML = `✅ Connected successfully! (ID: ${result.chat_id})`;
+                    telegramConnectBtn.innerHTML = `Γ£à Connected successfully! (ID: ${result.chat_id})`;
 
                     // Hide the instructional prompt paragraph, but keep the button
                     document.querySelector('#telegram-connect-prompt p').style.display = 'none';
@@ -380,16 +271,16 @@ addMonitorForm.addEventListener('submit', async (e) => {
 
     const formData = {
         user_email: userProfile.email,
-        url: targetUrlInput.value,
+        url: document.getElementById('target-url').value,
         ai_focus_note: aiFocusNoteInput ? aiFocusNoteInput.value.trim() : '',
         deep_crawl: deepCrawlCheck.checked,
         deep_crawl_depth: deepCrawlDepthInput ? parseInt(deepCrawlDepthInput.value, 10) : 1,
         requires_login: requiresLoginCheck.checked,
-        username: usernameInput.value,
-        password: passwordInput.value,
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value,
         has_captcha: hasCaptchaCheck.checked,
-        captcha_json: captchaJsonInput.value,
-        email_notifications_enabled: enableNotificationsCheck.checked,
+        captcha_json: document.getElementById('captcha-json').value,
+        email_notifications_enabled: document.getElementById('enable-notifications').checked,
         telegram_notifications_enabled: enableTelegramCheck.checked,
         telegram_chat_id: document.getElementById('telegram-chat-id').value
     };
@@ -400,105 +291,49 @@ addMonitorForm.addEventListener('submit', async (e) => {
     }
 
     try {
-        const origText = submitBtn.textContent;
-        submitBtn.textContent = editingMonitorId ? 'Saving...' : 'Adding...';
-        submitBtn.disabled = true;
+        const addBtn = addMonitorForm.querySelector('button[type="submit"]');
+        const origText = addBtn.textContent;
+        addBtn.textContent = 'Adding...';
+        addBtn.disabled = true;
 
-        if (editingMonitorId) {
-            formData.id = editingMonitorId;
-            await editMonitorApi(formData);
-            Toast.success("Monitor updated successfully!");
-        } else {
-            await addMonitorApi(formData);
-            Toast.success("Monitor added successfully!");
-        }
+        await addMonitorApi(formData);
 
+        Toast.success("Monitor added successfully!");
         monitorModal.style.display = 'none';
-        resetModalContent();
+        addMonitorForm.reset();
+        loginFields.style.display = 'none';
+        captchaFields.style.display = 'none';
+        telegramFields.style.display = 'none';
+        deepCrawlOptions.style.display = 'none';
+        deepCrawlAlert.style.display = 'none';
+
+        if (telegramPollingInterval) clearInterval(telegramPollingInterval);
+        telegramChatIdInput.value = '';
+        telegramConnectPrompt.style.display = 'block';
+        document.querySelector('#telegram-connect-prompt p').style.display = 'block'; // restore prompt text
+
+        // Restore button generic state
+        telegramConnectBtn.className = "btn btn-outline btn-block";
+        telegramConnectBtn.style.backgroundColor = "";
+        telegramConnectBtn.style.borderColor = "";
+        telegramConnectBtn.style.color = "";
+        telegramConnectBtn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 5L2 12.5L9 14M21 5L18.5 20L9 14M21 5L9 14M9 14V19.5L13.5 15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Connect Telegram App
+        `;
 
         if (dashboardComp) await dashboardComp.load();
 
-        submitBtn.textContent = origText;
-        submitBtn.disabled = false;
+        addBtn.textContent = origText;
+        addBtn.disabled = false;
 
     } catch (error) {
         console.error(error);
-        Toast.error(error.message || "Failed to process monitor");
-        submitBtn.textContent = editingMonitorId ? 'Save Changes' : 'Start Watching';
-        submitBtn.disabled = false;
+        Toast.error(error.message || "Failed to add monitor");
+        const addBtn = addMonitorForm.querySelector('button[type="submit"]');
+        addBtn.textContent = 'Start Watching';
+        addBtn.disabled = false;
     }
 });
-
-// ==========================================
-// ADMIN DASHBOARD LOGIC
-// ==========================================
-const adminPanelBtn = document.getElementById('admin-panel-btn');
-const backToAppBtn = document.getElementById('back-to-app-btn');
-const adminDashboard = document.getElementById('admin-dashboard');
-
-adminPanelBtn.addEventListener('click', async () => {
-    document.getElementById('dashboard').style.display = 'none';
-    adminDashboard.style.display = 'block';
-    await loadAdminStats();
-});
-
-backToAppBtn.addEventListener('click', () => {
-    adminDashboard.style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-});
-
-async function loadAdminStats() {
-    try {
-        const tbody = document.getElementById('admin-table-body');
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-secondary py-4">Loading...</td></tr>';
-
-        const stats = await getAdminStatsApi(userProfile.email);
-
-        document.getElementById('admin-total-users').textContent = stats.total_users;
-        document.getElementById('admin-total-monitors').textContent = stats.total_monitors;
-        document.getElementById('admin-total-failed').textContent = stats.total_failed_runs;
-
-        tbody.innerHTML = '';
-
-        if (stats.monitors.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="text-center text-secondary py-4">No monitors found in database.</td></tr>';
-            return;
-        }
-
-        stats.monitors.forEach(monitor => {
-            const tr = document.createElement('tr');
-            const isPaused = monitor.is_paused;
-            const hasFailed = monitor.last_run_status === 'failed';
-
-            const statusBadge = hasFailed ? `<span class="text-danger">Failed</span>` : `<span style="color:var(--success)">Healthy</span>`;
-            const pauseText = isPaused ? 'Resume' : 'Pause';
-
-            tr.innerHTML = `
-                <td>${monitor.user_email}</td>
-                <td><a href="${monitor.url}" target="_blank" style="color:var(--primary); text-decoration:none;">${monitor.url.substring(0, 30)}...</a></td>
-                <td>${isPaused ? '<span class="text-warning">Paused</span>' : statusBadge}</td>
-                <td style="font-size:0.8rem; color:var(--text-secondary); max-width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${monitor.last_error || ''}">
-                    ${hasFailed ? monitor.last_error : (monitor.last_error_time ? 'Recovered' : '-')}
-                </td>
-                <td>
-                    <button class="btn btn-sm ${isPaused ? 'btn-primary' : 'btn-outline'}" onclick="window.toggleAdminPause('${monitor._id}', ${!isPaused})" style="font-size:0.75rem;">${pauseText}</button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
-
-    } catch (e) {
-        console.error(e);
-        Toast.error("Failed to load admin stats");
-    }
-}
-
-window.toggleAdminPause = async (id, setPaused) => {
-    try {
-        await toggleMonitorApi(userProfile.email, id, setPaused);
-        Toast.success(setPaused ? "Monitor paused" : "Monitor resumed");
-        await loadAdminStats();
-    } catch (e) {
-        Toast.error("Action failed");
-    }
-};

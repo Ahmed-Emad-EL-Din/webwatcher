@@ -50,7 +50,7 @@ async def trigger_notifications(monitor_doc, summary):
     except Exception as e:
         print(f"Error calling notification function: {e}")
 
-async def summarize_changes(old_text, new_text):
+async def summarize_changes(old_text, new_text, ai_focus_note=""):
     # Calculate differences
     differ = difflib.ndiff(old_text.splitlines(), new_text.splitlines())
     
@@ -69,8 +69,10 @@ async def summarize_changes(old_text, new_text):
     if not diff_text.strip():
         return "No significant changes"
 
+    focus_instruction = f"\n    The user has provided a specific focus note: '{ai_focus_note}'. Please prioritize this in your summary and evaluate if the change is significant based ONLY on this note." if ai_focus_note else ""
+
     prompt = f"""
-    Analyze the following text diff between an old version and a new version of a webpage.
+    Analyze the following text diff between an old version and a new version of a webpage.{focus_instruction}
     Lines starting with '- ' were removed, and lines starting with '+ ' were added.
     Summarize the significant changes in 2-3 concise bullet points.
     If the changes are only minor (like timestamps, ads, UI state changes, or random numbers), state exactly "No significant changes".
@@ -119,18 +121,20 @@ async def extract_links(page, base_url):
                 clean_url += f"?{parsed.query}"
             valid_links.add(clean_url)
             
-    return valid_links
+    return sorted(list(valid_links))
 
 async def scrape_monitor(context, monitor_doc, monitors_col):
     start_url = monitor_doc['url']
     is_deep_crawl = monitor_doc.get('deep_crawl', False)
-    max_pages = 20 if is_deep_crawl else 1
+    # Default to depth 1 if not present (backwards compat)
+    max_depth = monitor_doc.get('deep_crawl_depth', 1) if is_deep_crawl else 1 
     
     visited = set()
-    queue = [start_url]
-    all_text_blocks = []
+    # Queue stores tuples of (URL, current_depth)
+    queue = [(start_url, 1)]
+    all_text_blocks = {}
     
-    print(f"Starting Scrape for: {start_url} (Deep Crawl: {is_deep_crawl})")
+    print(f"Starting Scrape for: {start_url} (Deep Crawl: {is_deep_crawl}, Max Depth: {max_depth})")
     
     # Authenticate only once strictly on the first URL if needed
     page = await context.new_page()
@@ -188,13 +192,14 @@ async def scrape_monitor(context, monitor_doc, monitors_col):
                 print(f"Login automated step failed: {e}")
 
         # Start BFS
-        while queue and len(visited) < max_pages:
-            current_url = queue.pop(0)
+        while queue:
+            current_url, current_depth = queue.pop(0)
+            
             if current_url in visited:
                 continue
                 
             visited.add(current_url)
-            print(f"  -> Scraping: {current_url} ({len(visited)}/{max_pages})")
+            print(f"  -> Scraping: {current_url} (Depth: {current_depth}/{max_depth})")
             
             try:
                 # If it's the exact start_url and we already loaded it for login, skip goto
@@ -204,19 +209,21 @@ async def scrape_monitor(context, monitor_doc, monitors_col):
                 # Extract Text
                 content = await page.evaluate("() => document.body.innerText")
                 clean_text = " ".join(content.split())
-                all_text_blocks.append(f"--- PAGE: {current_url} ---\n{clean_text}")
+                all_text_blocks[current_url] = f"--- PAGE: {current_url} ---\n{clean_text}"
 
-                # Extract Links if deep crawling
-                if is_deep_crawl:
+                # Extract Links if deep crawling AND we haven't reached max depth
+                if is_deep_crawl and current_depth < max_depth:
                     new_links = await extract_links(page, start_url)
                     for link in new_links:
-                        if link not in visited and link not in queue:
-                            queue.append(link)
+                        # Only add if not visited and not already in queue (compare just the url part)
+                        if link not in visited and not any(q_url == link for q_url, _ in queue):
+                            queue.append((link, current_depth + 1))
 
             except Exception as e:
                 print(f"    Error scraping sub-page {current_url}: {e}")
 
-        return "\n\n".join(all_text_blocks)
+        sorted_urls = sorted(all_text_blocks.keys())
+        return "\n\n".join(all_text_blocks[url] for url in sorted_urls)
     
     except Exception as e:
         print(f"Error executing monitor {start_url}: {e}")
@@ -238,11 +245,13 @@ async def process_monitor(monitor, browser, monitors_col, semaphore):
         if new_text is None:
             return
         
+        ai_focus_note = monitor.get('ai_focus_note', '')
+
         if monitor.get('is_first_run'):
             print(f"First run for {monitor['url']}. Saving base text.")
             
             # For the first run, generate an initial baseline summary
-            summary = await summarize_changes("No previous content. This is the first time the page is being scanned.", new_text)
+            summary = await summarize_changes("No previous content. This is the first time the page is being scanned.", new_text, ai_focus_note)
             
             monitors_col.update_one(
                 {"_id": monitor["_id"]},
@@ -263,7 +272,7 @@ async def process_monitor(monitor, browser, monitors_col, semaphore):
             
             if old_text != new_text:
                 print(f"Changes detected on {monitor['url']}")
-                summary = await summarize_changes(old_text, new_text)
+                summary = await summarize_changes(old_text, new_text, ai_focus_note)
                 
                 if "No significant changes" not in summary:
                     monitors_col.update_one(

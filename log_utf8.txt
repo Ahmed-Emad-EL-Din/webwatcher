@@ -1,0 +1,607 @@
+﻿scrape	Set up job	∩╗┐2026-02-20T20:33:01.9473378Z Current runner version: '2.331.0'
+scrape	Set up job	2026-02-20T20:33:01.9497549Z ##[group]Runner Image Provisioner
+scrape	Set up job	2026-02-20T20:33:01.9498452Z Hosted Compute Agent
+scrape	Set up job	2026-02-20T20:33:01.9499054Z Version: 20260123.484
+scrape	Set up job	2026-02-20T20:33:01.9499766Z Commit: 6bd6555ca37d84114959e1c76d2c01448ff61c5d
+scrape	Set up job	2026-02-20T20:33:01.9500502Z Build Date: 2026-01-23T19:41:17Z
+scrape	Set up job	2026-02-20T20:33:01.9501163Z Worker ID: {eba226a2-4a8b-4973-9f94-2d44a97e288b}
+scrape	Set up job	2026-02-20T20:33:01.9501916Z Azure Region: northcentralus
+scrape	Set up job	2026-02-20T20:33:01.9502519Z ##[endgroup]
+scrape	Set up job	2026-02-20T20:33:01.9504150Z ##[group]Operating System
+scrape	Set up job	2026-02-20T20:33:01.9504873Z Ubuntu
+scrape	Set up job	2026-02-20T20:33:01.9505401Z 24.04.3
+scrape	Set up job	2026-02-20T20:33:01.9505941Z LTS
+scrape	Set up job	2026-02-20T20:33:01.9506509Z ##[endgroup]
+scrape	Set up job	2026-02-20T20:33:01.9507017Z ##[group]Runner Image
+scrape	Set up job	2026-02-20T20:33:01.9507598Z Image: ubuntu-24.04
+scrape	Set up job	2026-02-20T20:33:01.9508233Z Version: 20260201.15.1
+scrape	Set up job	2026-02-20T20:33:01.9509296Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260201.15/images/ubuntu/Ubuntu2404-Readme.md
+scrape	Set up job	2026-02-20T20:33:01.9510978Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260201.15
+scrape	Set up job	2026-02-20T20:33:01.9511916Z ##[endgroup]
+scrape	Set up job	2026-02-20T20:33:01.9513106Z ##[group]GITHUB_TOKEN Permissions
+scrape	Set up job	2026-02-20T20:33:01.9515142Z Contents: read
+scrape	Set up job	2026-02-20T20:33:01.9515825Z Metadata: read
+scrape	Set up job	2026-02-20T20:33:01.9516401Z Packages: read
+scrape	Set up job	2026-02-20T20:33:01.9517170Z ##[endgroup]
+scrape	Set up job	2026-02-20T20:33:01.9519879Z Secret source: Actions
+scrape	Set up job	2026-02-20T20:33:01.9521097Z Prepare workflow directory
+scrape	Set up job	2026-02-20T20:33:01.9844409Z Prepare all required actions
+scrape	Set up job	2026-02-20T20:33:01.9881386Z Getting action download info
+scrape	Set up job	2026-02-20T20:33:02.3078155Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+scrape	Set up job	2026-02-20T20:33:02.4176163Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+scrape	Set up job	2026-02-20T20:33:02.6027124Z Complete job name: scrape
+scrape	Checkout Code	∩╗┐2026-02-20T20:33:02.6708270Z ##[group]Run actions/checkout@v4
+scrape	Checkout Code	2026-02-20T20:33:02.6709148Z with:
+scrape	Checkout Code	2026-02-20T20:33:02.6709646Z   repository: Ahmed-Emad-EL-Din/thewebspider
+scrape	Checkout Code	2026-02-20T20:33:02.6710378Z   token: ***
+scrape	Checkout Code	2026-02-20T20:33:02.6710786Z   ssh-strict: true
+scrape	Checkout Code	2026-02-20T20:33:02.6711212Z   ssh-user: git
+scrape	Checkout Code	2026-02-20T20:33:02.6711659Z   persist-credentials: true
+scrape	Checkout Code	2026-02-20T20:33:02.6712134Z   clean: true
+scrape	Checkout Code	2026-02-20T20:33:02.6712557Z   sparse-checkout-cone-mode: true
+scrape	Checkout Code	2026-02-20T20:33:02.6713061Z   fetch-depth: 1
+scrape	Checkout Code	2026-02-20T20:33:02.6713638Z   fetch-tags: false
+scrape	Checkout Code	2026-02-20T20:33:02.6714078Z   show-progress: true
+scrape	Checkout Code	2026-02-20T20:33:02.6714497Z   lfs: false
+scrape	Checkout Code	2026-02-20T20:33:02.6714890Z   submodules: false
+scrape	Checkout Code	2026-02-20T20:33:02.6715321Z   set-safe-directory: true
+scrape	Checkout Code	2026-02-20T20:33:02.6716028Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:02.7778509Z Syncing repository: Ahmed-Emad-EL-Din/thewebspider
+scrape	Checkout Code	2026-02-20T20:33:02.7780668Z ##[group]Getting Git version info
+scrape	Checkout Code	2026-02-20T20:33:02.7781444Z Working directory is '/home/runner/work/thewebspider/thewebspider'
+scrape	Checkout Code	2026-02-20T20:33:02.7782692Z [command]/usr/bin/git version
+scrape	Checkout Code	2026-02-20T20:33:02.7856565Z git version 2.52.0
+scrape	Checkout Code	2026-02-20T20:33:02.7881740Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:02.7895570Z Temporarily overriding HOME='/home/runner/work/_temp/3e9ff921-1390-47e9-80f1-362c157f732c' before making global git config changes
+scrape	Checkout Code	2026-02-20T20:33:02.7897748Z Adding repository directory to the temporary git global config as a safe directory
+scrape	Checkout Code	2026-02-20T20:33:02.7907840Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/thewebspider/thewebspider
+scrape	Checkout Code	2026-02-20T20:33:02.7944237Z Deleting the contents of '/home/runner/work/thewebspider/thewebspider'
+scrape	Checkout Code	2026-02-20T20:33:02.7947695Z ##[group]Initializing the repository
+scrape	Checkout Code	2026-02-20T20:33:02.7951469Z [command]/usr/bin/git init /home/runner/work/thewebspider/thewebspider
+scrape	Checkout Code	2026-02-20T20:33:02.8057685Z hint: Using 'master' as the name for the initial branch. This default branch name
+scrape	Checkout Code	2026-02-20T20:33:02.8059019Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+scrape	Checkout Code	2026-02-20T20:33:02.8059965Z hint: to use in all of your new repositories, which will suppress this warning,
+scrape	Checkout Code	2026-02-20T20:33:02.8061328Z hint: call:
+scrape	Checkout Code	2026-02-20T20:33:02.8062028Z hint:
+scrape	Checkout Code	2026-02-20T20:33:02.8062808Z hint: 	git config --global init.defaultBranch <name>
+scrape	Checkout Code	2026-02-20T20:33:02.8064027Z hint:
+scrape	Checkout Code	2026-02-20T20:33:02.8065075Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+scrape	Checkout Code	2026-02-20T20:33:02.8066741Z hint: 'development'. The just-created branch can be renamed via this command:
+scrape	Checkout Code	2026-02-20T20:33:02.8068067Z hint:
+scrape	Checkout Code	2026-02-20T20:33:02.8068814Z hint: 	git branch -m <name>
+scrape	Checkout Code	2026-02-20T20:33:02.8069623Z hint:
+scrape	Checkout Code	2026-02-20T20:33:02.8070647Z hint: Disable this message with "git config set advice.defaultBranchName false"
+scrape	Checkout Code	2026-02-20T20:33:02.8072442Z Initialized empty Git repository in /home/runner/work/thewebspider/thewebspider/.git/
+scrape	Checkout Code	2026-02-20T20:33:02.8075765Z [command]/usr/bin/git remote add origin https://github.com/Ahmed-Emad-EL-Din/thewebspider
+scrape	Checkout Code	2026-02-20T20:33:02.8109364Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:02.8110649Z ##[group]Disabling automatic garbage collection
+scrape	Checkout Code	2026-02-20T20:33:02.8114288Z [command]/usr/bin/git config --local gc.auto 0
+scrape	Checkout Code	2026-02-20T20:33:02.8142710Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:02.8144162Z ##[group]Setting up auth
+scrape	Checkout Code	2026-02-20T20:33:02.8150287Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+scrape	Checkout Code	2026-02-20T20:33:02.8181227Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+scrape	Checkout Code	2026-02-20T20:33:02.8507205Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+scrape	Checkout Code	2026-02-20T20:33:02.8537293Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+scrape	Checkout Code	2026-02-20T20:33:02.8750611Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+scrape	Checkout Code	2026-02-20T20:33:02.8780225Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+scrape	Checkout Code	2026-02-20T20:33:02.9006146Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+scrape	Checkout Code	2026-02-20T20:33:02.9039052Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:02.9040342Z ##[group]Fetching the repository
+scrape	Checkout Code	2026-02-20T20:33:02.9049619Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +59b5be2404fb0fd546bf9d034cdb258120f14fb7:refs/remotes/origin/main
+scrape	Checkout Code	2026-02-20T20:33:03.2462437Z From https://github.com/Ahmed-Emad-EL-Din/thewebspider
+scrape	Checkout Code	2026-02-20T20:33:03.2464189Z  * [new ref]         59b5be2404fb0fd546bf9d034cdb258120f14fb7 -> origin/main
+scrape	Checkout Code	2026-02-20T20:33:03.2494997Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:03.2495783Z ##[group]Determining the checkout info
+scrape	Checkout Code	2026-02-20T20:33:03.2496869Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:03.2501772Z [command]/usr/bin/git sparse-checkout disable
+scrape	Checkout Code	2026-02-20T20:33:03.2540741Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+scrape	Checkout Code	2026-02-20T20:33:03.2565995Z ##[group]Checking out the ref
+scrape	Checkout Code	2026-02-20T20:33:03.2569467Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+scrape	Checkout Code	2026-02-20T20:33:03.2653185Z Switched to a new branch 'main'
+scrape	Checkout Code	2026-02-20T20:33:03.2656104Z branch 'main' set up to track 'origin/main'.
+scrape	Checkout Code	2026-02-20T20:33:03.2662708Z ##[endgroup]
+scrape	Checkout Code	2026-02-20T20:33:03.2695028Z [command]/usr/bin/git log -1 --format=%H
+scrape	Checkout Code	2026-02-20T20:33:03.2715725Z 59b5be2404fb0fd546bf9d034cdb258120f14fb7
+scrape	Set up Python	∩╗┐2026-02-20T20:33:03.2958129Z ##[group]Run actions/setup-python@v5
+scrape	Set up Python	2026-02-20T20:33:03.2958748Z with:
+scrape	Set up Python	2026-02-20T20:33:03.2959174Z   python-version: 3.10
+scrape	Set up Python	2026-02-20T20:33:03.2959656Z   check-latest: false
+scrape	Set up Python	2026-02-20T20:33:03.2960269Z   token: ***
+scrape	Set up Python	2026-02-20T20:33:03.2960717Z   update-environment: true
+scrape	Set up Python	2026-02-20T20:33:03.2961229Z   allow-prereleases: false
+scrape	Set up Python	2026-02-20T20:33:03.2961723Z   freethreaded: false
+scrape	Set up Python	2026-02-20T20:33:03.2962184Z ##[endgroup]
+scrape	Set up Python	2026-02-20T20:33:03.4618904Z ##[group]Installed versions
+scrape	Set up Python	2026-02-20T20:33:03.4759173Z Successfully set up CPython (3.10.19)
+scrape	Set up Python	2026-02-20T20:33:03.4760728Z ##[endgroup]
+scrape	Install Dependencies	∩╗┐2026-02-20T20:33:03.4899007Z ##[group]Run python -m pip install --upgrade pip
+scrape	Install Dependencies	2026-02-20T20:33:03.4900246Z [36;1mpython -m pip install --upgrade pip[0m
+scrape	Install Dependencies	2026-02-20T20:33:03.4901267Z [36;1mpip install -r requirements.txt[0m
+scrape	Install Dependencies	2026-02-20T20:33:03.5045197Z shell: /usr/bin/bash -e {0}
+scrape	Install Dependencies	2026-02-20T20:33:03.5045923Z env:
+scrape	Install Dependencies	2026-02-20T20:33:03.5046642Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Dependencies	2026-02-20T20:33:03.5048108Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+scrape	Install Dependencies	2026-02-20T20:33:03.5049561Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Dependencies	2026-02-20T20:33:03.5050831Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Dependencies	2026-02-20T20:33:03.5052110Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Dependencies	2026-02-20T20:33:03.5053434Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+scrape	Install Dependencies	2026-02-20T20:33:03.5054720Z ##[endgroup]
+scrape	Install Dependencies	2026-02-20T20:33:05.5948424Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages (26.0)
+scrape	Install Dependencies	2026-02-20T20:33:05.7056462Z Collecting pip
+scrape	Install Dependencies	2026-02-20T20:33:05.7621053Z   Downloading pip-26.0.1-py3-none-any.whl.metadata (4.7 kB)
+scrape	Install Dependencies	2026-02-20T20:33:05.7689627Z Downloading pip-26.0.1-py3-none-any.whl (1.8 MB)
+scrape	Install Dependencies	2026-02-20T20:33:05.8130480Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.8/1.8 MB 134.0 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:05.8493109Z Installing collected packages: pip
+scrape	Install Dependencies	2026-02-20T20:33:05.8495747Z   Attempting uninstall: pip
+scrape	Install Dependencies	2026-02-20T20:33:05.8505102Z     Found existing installation: pip 26.0
+scrape	Install Dependencies	2026-02-20T20:33:05.9261136Z     Uninstalling pip-26.0:
+scrape	Install Dependencies	2026-02-20T20:33:05.9333827Z       Successfully uninstalled pip-26.0
+scrape	Install Dependencies	2026-02-20T20:33:06.7360339Z Successfully installed pip-26.0.1
+scrape	Install Dependencies	2026-02-20T20:33:07.3063889Z Collecting playwright>=1.40.0 (from -r requirements.txt (line 1))
+scrape	Install Dependencies	2026-02-20T20:33:07.3604593Z   Downloading playwright-1.58.0-py3-none-manylinux1_x86_64.whl.metadata (3.5 kB)
+scrape	Install Dependencies	2026-02-20T20:33:07.7254549Z Collecting pymongo>=4.6.0 (from -r requirements.txt (line 2))
+scrape	Install Dependencies	2026-02-20T20:33:07.7297285Z   Downloading pymongo-4.16.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (10.0 kB)
+scrape	Install Dependencies	2026-02-20T20:33:07.7512977Z Collecting google-generativeai>=0.3.0 (from -r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:07.7568307Z   Downloading google_generativeai-0.8.6-py3-none-any.whl.metadata (3.9 kB)
+scrape	Install Dependencies	2026-02-20T20:33:07.7741011Z Collecting python-dotenv>=1.0.0 (from -r requirements.txt (line 4))
+scrape	Install Dependencies	2026-02-20T20:33:07.7777026Z   Downloading python_dotenv-1.2.1-py3-none-any.whl.metadata (25 kB)
+scrape	Install Dependencies	2026-02-20T20:33:07.8081603Z Collecting requests>=2.31.0 (from -r requirements.txt (line 5))
+scrape	Install Dependencies	2026-02-20T20:33:07.8120534Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+scrape	Install Dependencies	2026-02-20T20:33:07.8279722Z Collecting pyee<14,>=13 (from playwright>=1.40.0->-r requirements.txt (line 1))
+scrape	Install Dependencies	2026-02-20T20:33:07.8316990Z   Downloading pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.0044842Z Collecting greenlet<4.0.0,>=3.1.1 (from playwright>=1.40.0->-r requirements.txt (line 1))
+scrape	Install Dependencies	2026-02-20T20:33:08.0087101Z   Downloading greenlet-3.3.2-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.0306198Z Collecting typing-extensions (from pyee<14,>=13->playwright>=1.40.0->-r requirements.txt (line 1))
+scrape	Install Dependencies	2026-02-20T20:33:08.0346725Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.0495709Z Collecting dnspython<3.0.0,>=2.6.1 (from pymongo>=4.6.0->-r requirements.txt (line 2))
+scrape	Install Dependencies	2026-02-20T20:33:08.0538039Z   Downloading dnspython-2.8.0-py3-none-any.whl.metadata (5.7 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.0725676Z Collecting google-ai-generativelanguage==0.6.15 (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.0765934Z   Downloading google_ai_generativelanguage-0.6.15-py3-none-any.whl.metadata (5.7 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.1153930Z Collecting google-api-core (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.1193131Z   Downloading google_api_core-2.30.0-py3-none-any.whl.metadata (3.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.1789921Z Collecting google-api-python-client (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.1828904Z   Downloading google_api_python_client-2.190.0-py3-none-any.whl.metadata (7.0 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.2196446Z Collecting google-auth>=2.15.0 (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.2244107Z   Downloading google_auth-2.48.0-py3-none-any.whl.metadata (6.2 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.4134474Z Collecting protobuf (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.4185181Z   Downloading protobuf-6.33.5-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+scrape	Install Dependencies	2026-02-20T20:33:08.5812472Z Collecting pydantic (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.5854522Z   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.6274678Z Collecting tqdm (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.6311217Z   Downloading tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.6981903Z Collecting google-auth>=2.15.0 (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.7020815Z   Downloading google_auth-2.49.0.dev0-py3-none-any.whl.metadata (6.0 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.7282607Z Collecting proto-plus<2.0.0dev,>=1.22.3 (from google-ai-generativelanguage==0.6.15->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.7403366Z   Downloading proto_plus-1.27.1-py3-none-any.whl.metadata (2.2 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.7756482Z Collecting protobuf (from google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.7797391Z   Downloading protobuf-5.29.6-cp38-abi3-manylinux2014_x86_64.whl.metadata (592 bytes)
+scrape	Install Dependencies	2026-02-20T20:33:08.8000786Z Collecting googleapis-common-protos<2.0.0,>=1.56.3 (from google-api-core->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:08.8039860Z   Downloading googleapis_common_protos-1.72.0-py3-none-any.whl.metadata (9.4 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.9465403Z Collecting charset_normalizer<4,>=2 (from requests>=2.31.0->-r requirements.txt (line 5))
+scrape	Install Dependencies	2026-02-20T20:33:08.9506012Z   Downloading charset_normalizer-3.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.9678707Z Collecting idna<4,>=2.5 (from requests>=2.31.0->-r requirements.txt (line 5))
+scrape	Install Dependencies	2026-02-20T20:33:08.9716215Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+scrape	Install Dependencies	2026-02-20T20:33:08.9987995Z Collecting urllib3<3,>=1.21.1 (from requests>=2.31.0->-r requirements.txt (line 5))
+scrape	Install Dependencies	2026-02-20T20:33:09.0024620Z   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+scrape	Install Dependencies	2026-02-20T20:33:09.0254314Z Collecting certifi>=2017.4.17 (from requests>=2.31.0->-r requirements.txt (line 5))
+scrape	Install Dependencies	2026-02-20T20:33:09.0290277Z   Downloading certifi-2026.1.4-py3-none-any.whl.metadata (2.5 kB)
+scrape	Install Dependencies	2026-02-20T20:33:09.6427714Z Collecting grpcio<2.0.0,>=1.33.2 (from google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.1->google-ai-generativelanguage==0.6.15->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:09.6477575Z   Downloading grpcio-1.78.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.8 kB)
+scrape	Install Dependencies	2026-02-20T20:33:09.6858981Z Collecting grpcio-status<2.0.0,>=1.33.2 (from google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.1->google-ai-generativelanguage==0.6.15->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:09.6895690Z   Downloading grpcio_status-1.78.1-py3-none-any.whl.metadata (1.3 kB)
+scrape	Install Dependencies	2026-02-20T20:33:09.7108382Z Collecting pyasn1-modules>=0.2.1 (from google-auth>=2.15.0->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:09.7148919Z   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+scrape	Install Dependencies	2026-02-20T20:33:09.9640137Z Collecting cryptography>=38.0.3 (from google-auth>=2.15.0->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:09.9680548Z   Downloading cryptography-46.0.5-cp38-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0022663Z INFO: pip is looking at multiple versions of grpcio-status to determine which version is compatible with other requirements. This could take a while.
+scrape	Install Dependencies	2026-02-20T20:33:10.0029203Z Collecting grpcio-status<2.0.0,>=1.33.2 (from google-api-core[grpc]!=2.0.*,!=2.1.*,!=2.10.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,<3.0.0dev,>=1.34.1->google-ai-generativelanguage==0.6.15->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.0069274Z   Downloading grpcio_status-1.78.0-py3-none-any.whl.metadata (1.3 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0143438Z   Downloading grpcio_status-1.76.0-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0240993Z   Downloading grpcio_status-1.75.1-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0374386Z   Downloading grpcio_status-1.75.0-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0384008Z   Downloading grpcio_status-1.74.0-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0459593Z   Downloading grpcio_status-1.73.1-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0653897Z   Downloading grpcio_status-1.73.0-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0694051Z INFO: pip is still looking at multiple versions of grpcio-status to determine which version is compatible with other requirements. This could take a while.
+scrape	Install Dependencies	2026-02-20T20:33:10.0740884Z   Downloading grpcio_status-1.72.2-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0810702Z   Downloading grpcio_status-1.72.1-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.0883175Z   Downloading grpcio_status-1.71.2-py3-none-any.whl.metadata (1.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.2745642Z Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth>=2.15.0->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.2786577Z   Downloading cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.2931232Z Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth>=2.15.0->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.2967683Z   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.3204967Z Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth>=2.15.0->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.3242699Z   Downloading pyasn1-0.6.2-py3-none-any.whl.metadata (8.4 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.3419682Z Collecting httplib2<1.0.0,>=0.19.0 (from google-api-python-client->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.3455878Z   Downloading httplib2-0.31.2-py3-none-any.whl.metadata (2.2 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.3732000Z Collecting google-auth-httplib2<1.0.0,>=0.2.0 (from google-api-python-client->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.3773737Z   Downloading google_auth_httplib2-0.3.0-py3-none-any.whl.metadata (3.1 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.3990361Z Collecting uritemplate<5,>=3.0.1 (from google-api-python-client->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.4027869Z   Downloading uritemplate-4.2.0-py3-none-any.whl.metadata (2.6 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.4324942Z Collecting pyparsing<4,>=3.1 (from httplib2<1.0.0,>=0.19.0->google-api-python-client->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.4365929Z   Downloading pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+scrape	Install Dependencies	2026-02-20T20:33:10.4511262Z Collecting annotated-types>=0.6.0 (from pydantic->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:10.4549718Z   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.2794622Z Collecting pydantic-core==2.41.5 (from pydantic->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:11.2847279Z   Downloading pydantic_core-2.41.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.2987006Z Collecting typing-inspection>=0.4.2 (from pydantic->google-generativeai>=0.3.0->-r requirements.txt (line 3))
+scrape	Install Dependencies	2026-02-20T20:33:11.3024292Z   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.3137312Z Downloading playwright-1.58.0-py3-none-manylinux1_x86_64.whl (46.2 MB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5048514Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 46.2/46.2 MB 246.5 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.5089499Z Downloading greenlet-3.3.2-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (591 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5156821Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 591.7/591.7 kB 81.0 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.5194762Z Downloading pyee-13.0.1-py3-none-any.whl (15 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5255489Z Downloading pymongo-4.16.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.2 MB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5376601Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.2/1.2 MB 102.0 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.5414923Z Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5491170Z Downloading google_generativeai-0.8.6-py3-none-any.whl (155 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5556910Z Downloading google_ai_generativelanguage-0.6.15-py3-none-any.whl (1.3 MB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5658670Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.3/1.3 MB 148.4 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.5698361Z Downloading google_api_core-2.30.0-py3-none-any.whl (173 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5775704Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5838667Z Downloading charset_normalizer-3.4.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.5905425Z Downloading google_auth-2.49.0.dev0-py3-none-any.whl (236 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6005236Z Downloading googleapis_common_protos-1.72.0-py3-none-any.whl (297 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6077317Z Downloading grpcio-1.78.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (6.7 MB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6397577Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 6.7/6.7 MB 225.0 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.6436756Z Downloading grpcio_status-1.71.2-py3-none-any.whl (14 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6512730Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6578755Z Downloading proto_plus-1.27.1-py3-none-any.whl (50 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6640539Z Downloading protobuf-5.29.6-cp38-abi3-manylinux2014_x86_64.whl (320 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6718163Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6782419Z Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6846794Z Downloading python_dotenv-1.2.1-py3-none-any.whl (21 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6905322Z Downloading certifi-2026.1.4-py3-none-any.whl (152 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.6974122Z Downloading cryptography-46.0.5-cp38-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
+scrape	Install Dependencies	2026-02-20T20:33:11.7219236Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 4.5/4.5 MB 194.4 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.7320213Z Downloading cffi-2.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (216 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.7394458Z Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.7464168Z Downloading pyasn1-0.6.2-py3-none-any.whl (83 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.7527055Z Downloading google_api_python_client-2.190.0-py3-none-any.whl (14.7 MB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8240288Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 14.7/14.7 MB 211.7 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.8279726Z Downloading google_auth_httplib2-0.3.0-py3-none-any.whl (9.5 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8342886Z Downloading httplib2-0.31.2-py3-none-any.whl (91 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8412164Z Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8477606Z Downloading uritemplate-4.2.0-py3-none-any.whl (11 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8537518Z Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8603136Z Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8706331Z Downloading pydantic_core-2.41.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8854168Z    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 2.1/2.1 MB 163.3 MB/s  0:00:00
+scrape	Install Dependencies	2026-02-20T20:33:11.8898503Z Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.8986639Z Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+scrape	Install Dependencies	2026-02-20T20:33:11.9073801Z Downloading tqdm-4.67.3-py3-none-any.whl (78 kB)
+scrape	Install Dependencies	2026-02-20T20:33:12.1836765Z Installing collected packages: urllib3, uritemplate, typing-extensions, tqdm, python-dotenv, pyparsing, pycparser, pyasn1, protobuf, idna, greenlet, dnspython, charset_normalizer, certifi, annotated-types, typing-inspection, requests, pymongo, pyee, pydantic-core, pyasn1-modules, proto-plus, httplib2, grpcio, googleapis-common-protos, cffi, pydantic, playwright, grpcio-status, cryptography, google-auth, google-auth-httplib2, google-api-core, google-api-python-client, google-ai-generativelanguage, google-generativeai
+scrape	Install Dependencies	2026-02-20T20:33:16.3216923Z 
+scrape	Install Dependencies	2026-02-20T20:33:16.3275758Z Successfully installed annotated-types-0.7.0 certifi-2026.1.4 cffi-2.0.0 charset_normalizer-3.4.4 cryptography-46.0.5 dnspython-2.8.0 google-ai-generativelanguage-0.6.15 google-api-core-2.30.0 google-api-python-client-2.190.0 google-auth-2.49.0.dev0 google-auth-httplib2-0.3.0 google-generativeai-0.8.6 googleapis-common-protos-1.72.0 greenlet-3.3.2 grpcio-1.78.1 grpcio-status-1.71.2 httplib2-0.31.2 idna-3.11 playwright-1.58.0 proto-plus-1.27.1 protobuf-5.29.6 pyasn1-0.6.2 pyasn1-modules-0.4.2 pycparser-3.0 pydantic-2.12.5 pydantic-core-2.41.5 pyee-13.0.1 pymongo-4.16.0 pyparsing-3.3.2 python-dotenv-1.2.1 requests-2.32.5 tqdm-4.67.3 typing-extensions-4.15.0 typing-inspection-0.4.2 uritemplate-4.2.0 urllib3-2.6.3
+scrape	Install Playwright Browsers	∩╗┐2026-02-20T20:33:16.9330666Z ##[group]Run playwright install chromium --with-deps
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9331073Z [36;1mplaywright install chromium --with-deps[0m
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9364969Z shell: /usr/bin/bash -e {0}
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9365212Z env:
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9365458Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9365896Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9366309Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9366672Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9367029Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9367417Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+scrape	Install Playwright Browsers	2026-02-20T20:33:16.9367737Z ##[endgroup]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.3610131Z Installing dependencies...
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.4632949Z Switching to root user to install dependencies...
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.5460709Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.5798315Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.5799363Z Get:6 https://packages.microsoft.com/repos/azure-cli noble InRelease [3564 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.5800903Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.5917263Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.5955065Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.5980185Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.7173108Z Get:8 https://packages.microsoft.com/repos/azure-cli noble/main amd64 Packages [2129 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.7606903Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [11.4 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.7648709Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [72.3 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.7685503Z Get:11 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [92.9 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.7755549Z Get:12 https://packages.microsoft.com/ubuntu/24.04/prod noble/main all Packages [643 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8107875Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1771 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8221617Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [328 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8252568Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8274035Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [16.5 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8286317Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1557 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8367635Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [316 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8397022Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [386 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8429815Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [32.6 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8441336Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2663 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.8598288Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [613 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9070722Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9097153Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [32.1 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9110558Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [7044 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9123388Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9129503Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7324 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9138601Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9147460Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9156814Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9250606Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1474 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9336889Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [237 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9358817Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.6 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9371286Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [9892 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9382003Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [935 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9438695Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [214 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9897568Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [74.2 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9910112Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [20.0 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:17.9919763Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2516 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:18.0100276Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [582 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:18.0136963Z Get:41 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [208 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:18.0145993Z Get:42 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:26.8797418Z Fetched 14.6 MB in 2s (8464 kB/s)
+scrape	Install Playwright Browsers	2026-02-20T20:33:27.6648202Z Reading package lists...
+scrape	Install Playwright Browsers	2026-02-20T20:33:27.6908531Z Reading package lists...
+scrape	Install Playwright Browsers	2026-02-20T20:33:27.9110430Z Building dependency tree...
+scrape	Install Playwright Browsers	2026-02-20T20:33:27.9118131Z Reading state information...
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0662077Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0663063Z libatk-bridge2.0-0t64 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0663983Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0664634Z libatk1.0-0t64 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0665300Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0665899Z libatspi2.0-0t64 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0666480Z libcairo2 is already the newest version (1.18.0-3build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0667089Z libcairo2 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0667643Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.9).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0668234Z libcups2t64 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0668813Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0669405Z libdbus-1-3 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0669957Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0670567Z libdrm2 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0671090Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0671655Z libgbm1 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0672162Z libnspr4 is already the newest version (2:4.35-1.1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0672691Z libnspr4 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0673166Z libnss3 is already the newest version (2:3.98-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0673847Z libnss3 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0674419Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0675028Z libpango-1.0-0 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0675563Z libx11-6 is already the newest version (2:1.8.7-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0676158Z libx11-6 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0677155Z libxcb1 is already the newest version (1.15-1ubuntu2).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0677650Z libxcb1 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0678159Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0678712Z libxcomposite1 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0679214Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0679752Z libxdamage1 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0680241Z libxext6 is already the newest version (2:1.3.4-1build2).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0680772Z libxext6 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0681272Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0681812Z libxfixes3 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0682362Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0682909Z libxkbcommon0 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0683443Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0684242Z libxrandr2 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0684801Z xvfb is already the newest version (2:21.1.12-1ubuntu1.5).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0685576Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0686398Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0687015Z libfontconfig1 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0687594Z libfreetype6 is already the newest version (2.13.2+dfsg-1build3).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0688186Z libfreetype6 set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0688729Z fonts-liberation is already the newest version (1:2.1.5-3).
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0689313Z fonts-liberation set to manually installed.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0689861Z The following additional packages will be installed:
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0690524Z   gir1.2-glib-2.0 libasound2-data libglib2.0-bin libglib2.0-data
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0691397Z   xfonts-encodings xfonts-utils
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0691793Z Suggested packages:
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0692209Z   alsa-utils libasound2-plugins low-memory-monitor
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0692762Z Recommended packages:
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0693314Z   fonts-ipafont-mincho fonts-tlwg-loma alsa-ucm-conf alsa-topology-conf
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0958127Z The following NEW packages will be installed:
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0958975Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0964851Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0965480Z   xfonts-utils
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0968657Z The following packages will be upgraded:
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0969855Z   gir1.2-glib-2.0 libasound2-data libasound2t64 libglib2.0-0t64 libglib2.0-bin
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.0974694Z   libglib2.0-data
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.1138421Z 6 upgraded, 9 newly installed, 0 to remove and 158 not upgraded.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.1139071Z Need to get 23.4 MB of archives.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.1139702Z After this operation, 79.6 MB of additional disk space will be used.
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.1140438Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.1896189Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.5466392Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-data all 2.80.0-6ubuntu3.8 [49.6 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.5765856Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-bin amd64 2.80.0-6ubuntu3.8 [97.9 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.6071460Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 gir1.2-glib-2.0 amd64 2.80.0-6ubuntu3.8 [183 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.6413359Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-0t64 amd64 2.80.0-6ubuntu3.8 [1545 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.7551258Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:28.9961446Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.0309465Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.1841744Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.5396728Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libasound2t64 amd64 1.2.11-1ubuntu0.2 [398 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.5843132Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libasound2-data all 1.2.11-1ubuntu0.2 [21.3 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.6108622Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.6664271Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.6987684Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:29.7505045Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0256266Z Fetched 23.4 MB in 2s (14.1 MB/s)
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0500861Z Selecting previously unselected package fonts-ipafont-gothic.
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0824317Z (Reading database ... 
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0824810Z (Reading database ... 5%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0825129Z (Reading database ... 10%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0825374Z (Reading database ... 15%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0825584Z (Reading database ... 20%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0825787Z (Reading database ... 25%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0825985Z (Reading database ... 30%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0826184Z (Reading database ... 35%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0826651Z (Reading database ... 40%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0827012Z (Reading database ... 45%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0827364Z (Reading database ... 50%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.0913884Z (Reading database ... 55%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.2203232Z (Reading database ... 60%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.3776759Z (Reading database ... 65%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.4163807Z (Reading database ... 70%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.5365197Z (Reading database ... 75%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.7177710Z (Reading database ... 80%
+scrape	Install Playwright Browsers	2026-02-20T20:33:30.9158596Z (Reading database ... 85%
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.1211514Z (Reading database ... 90%
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.3139051Z (Reading database ... 95%
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.3139606Z (Reading database ... 100%
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.3140130Z (Reading database ... 217745 files and directories currently installed.)
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.3184780Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.3271318Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.5688414Z Preparing to unpack .../01-libglib2.0-data_2.80.0-6ubuntu3.8_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.5716091Z Unpacking libglib2.0-data (2.80.0-6ubuntu3.8) over (2.80.0-6ubuntu3.4) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.6069866Z Preparing to unpack .../02-libglib2.0-bin_2.80.0-6ubuntu3.8_amd64.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.6099880Z Unpacking libglib2.0-bin (2.80.0-6ubuntu3.8) over (2.80.0-6ubuntu3.4) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.7020995Z Preparing to unpack .../03-gir1.2-glib-2.0_2.80.0-6ubuntu3.8_amd64.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.7048570Z Unpacking gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.8) over (2.80.0-6ubuntu3.4) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.7489350Z Preparing to unpack .../04-libglib2.0-0t64_2.80.0-6ubuntu3.8_amd64.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.7572406Z Unpacking libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.8) over (2.80.0-6ubuntu3.4) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.8019339Z Selecting previously unselected package fonts-freefont-ttf.
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.8158629Z Preparing to unpack .../05-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.8168711Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.9026393Z Selecting previously unselected package fonts-tlwg-loma-otf.
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.9161859Z Preparing to unpack .../06-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.9171882Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.9406257Z Selecting previously unselected package fonts-unifont.
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.9542465Z Preparing to unpack .../07-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:31.9552123Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.0791211Z Selecting previously unselected package fonts-wqy-zenhei.
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.0925918Z Preparing to unpack .../08-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.1064015Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.5796930Z Preparing to unpack .../09-libasound2t64_1.2.11-1ubuntu0.2_amd64.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.5822320Z Unpacking libasound2t64:amd64 (1.2.11-1ubuntu0.2) over (1.2.11-1ubuntu0.1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.6311384Z Preparing to unpack .../10-libasound2-data_1.2.11-1ubuntu0.2_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.6337169Z Unpacking libasound2-data (1.2.11-1ubuntu0.2) over (1.2.11-1ubuntu0.1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.6843397Z Selecting previously unselected package xfonts-encodings.
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.6977957Z Preparing to unpack .../11-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.6985847Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.7293119Z Selecting previously unselected package xfonts-utils.
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.7429051Z Preparing to unpack .../12-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.7438318Z Unpacking xfonts-utils (1:7.7+6build3) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.7902944Z Selecting previously unselected package xfonts-cyrillic.
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.8038690Z Preparing to unpack .../13-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.8050507Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.8390464Z Selecting previously unselected package xfonts-scalable.
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.8525455Z Preparing to unpack .../14-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.8535642Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.8961404Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9085018Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9108574Z Setting up libasound2-data (1.2.11-1ubuntu0.2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9131080Z Setting up libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.8) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9318054Z Setting up libglib2.0-data (2.80.0-6ubuntu3.8) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9340165Z Setting up libasound2t64:amd64 (1.2.11-1ubuntu0.2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9363962Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9386244Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9412849Z Setting up gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.8) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9434150Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9499330Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9514972Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9538002Z Setting up libglib2.0-bin (2.80.0-6ubuntu3.8) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9557955Z Setting up xfonts-utils (1:7.7+6build3) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:32.9621903Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.0140538Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.0444199Z Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.0764831Z Processing triggers for man-db (2.12.0-4build2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.0795114Z Not building database; man-db/auto-update is not 'true'.
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.0816486Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.7337844Z 
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.7338404Z Running kernel seems to be up-to-date.
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.7338723Z 
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.7338866Z Restarting services...
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.7779372Z  systemctl restart packagekit.service php8.3-fpm.service polkit.service udisks2.service
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9295431Z 
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9295904Z Service restarts being deferred:
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9296425Z  systemctl restart ModemManager.service
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9296965Z  systemctl restart networkd-dispatcher.service
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9297340Z 
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9297500Z No containers need to be restarted.
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9297798Z 
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9298003Z No user sessions are running outdated binaries.
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9298350Z 
+scrape	Install Playwright Browsers	2026-02-20T20:33:33.9298681Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+scrape	Install Playwright Browsers	2026-02-20T20:33:34.9592212Z Downloading Chrome for Testing 145.0.7632.6 (playwright chromium v1208) from https://cdn.playwright.dev/chrome-for-testing-public/145.0.7632.6/linux64/chrome-linux64.zip
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.0560221Z (node:3047) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.0562165Z (Use `node --trace-deprecation ...` to show where the warning was created)
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.1567098Z |                                                                                |   0% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.3531105Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                                        |  10% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.4957462Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                                |  20% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.6312508Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                        |  30% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.7609471Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                |  40% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:35.9020058Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                        |  50% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:36.0026727Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                |  60% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:36.1593230Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                        |  70% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:36.2991619Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                |  80% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:36.4265445Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá        |  90% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:36.5791174Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá| 100% of 167.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.0167547Z Chrome for Testing 145.0.7632.6 (playwright chromium v1208) downloaded to /home/runner/.cache/ms-playwright/chromium-1208
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.0172496Z Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.1185366Z (node:3058) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.1186724Z (Use `node --trace-deprecation ...` to show where the warning was created)
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.1957487Z |                                                                                |   0% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.1999510Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                                        |  10% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2036134Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                                |  20% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2055168Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                        |  30% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2068653Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                |  40% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2083685Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                        |  50% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2102598Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                |  60% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2115880Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                        |  70% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2130889Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                |  80% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2145637Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá        |  90% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2156502Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá| 100% of 2.3 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2694322Z FFmpeg (playwright ffmpeg v1011) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.2697869Z Downloading Chrome Headless Shell 145.0.7632.6 (playwright chromium-headless-shell v1208) from https://cdn.playwright.dev/chrome-for-testing-public/145.0.7632.6/linux64/chrome-headless-shell-linux64.zip
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.3634338Z (node:3069) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.3636280Z (Use `node --trace-deprecation ...` to show where the warning was created)
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.4834447Z |                                                                                |   0% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.7065169Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                                        |  10% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:39.8649000Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                                |  20% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:40.0312336Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                        |  30% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:40.2352027Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                                |  40% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:40.3517838Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                        |  50% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:40.5449924Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                                |  60% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:40.7991694Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                        |  70% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:40.9761243Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá                |  80% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:41.2768897Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá        |  90% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:41.5318818Z |ΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûáΓûá| 100% of 110.9 MiB
+scrape	Install Playwright Browsers	2026-02-20T20:33:43.3138290Z Chrome Headless Shell 145.0.7632.6 (playwright chromium-headless-shell v1208) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1208
+scrape	Run Scraper	∩╗┐2026-02-20T20:33:43.3376490Z ##[group]Run python scraper.py
+scrape	Run Scraper	2026-02-20T20:33:43.3376819Z [36;1mpython scraper.py[0m
+scrape	Run Scraper	2026-02-20T20:33:43.3409237Z shell: /usr/bin/bash -e {0}
+scrape	Run Scraper	2026-02-20T20:33:43.3409474Z env:
+scrape	Run Scraper	2026-02-20T20:33:43.3409726Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Run Scraper	2026-02-20T20:33:43.3410168Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib/pkgconfig
+scrape	Run Scraper	2026-02-20T20:33:43.3410602Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Run Scraper	2026-02-20T20:33:43.3410980Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Run Scraper	2026-02-20T20:33:43.3411368Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.19/x64
+scrape	Run Scraper	2026-02-20T20:33:43.3411738Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.19/x64/lib
+scrape	Run Scraper	2026-02-20T20:33:43.3412577Z   MONGO_URI: ***
+scrape	Run Scraper	2026-02-20T20:33:43.3412864Z   GEMINI_API_KEY: ***
+scrape	Run Scraper	
+scrape	Run Scraper	2026-02-20T20:33:43.3413067Z   EMAIL_HOST: 
+scrape	Run Scraper	2026-02-20T20:33:43.3413235Z   EMAIL_PORT: 
+scrape	Run Scraper	2026-02-20T20:33:43.3413403Z   EMAIL_HOST_USER: 
+scrape	Run Scraper	2026-02-20T20:33:43.3413880Z   EMAIL_HOST_PASSWORD: 
+scrape	Run Scraper	2026-02-20T20:33:43.3414238Z   WEBHOOK_SECRET: 
+scrape	Run Scraper	2026-02-20T20:33:43.3414634Z   NETLIFY_URL: ***
+scrape	Run Scraper	2026-02-20T20:33:43.3414940Z ##[endgroup]
+scrape	Run Scraper	2026-02-20T20:33:43.6707859Z /opt/hostedtoolcache/Python/3.10.19/x64/lib/python3.10/site-packages/google/api_core/_python_version_support.py:275: FutureWarning: You are using a Python version (3.10.19) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+scrape	Run Scraper	2026-02-20T20:33:43.6710710Z   warnings.warn(message, FutureWarning)
+scrape	Run Scraper	2026-02-20T20:33:44.0964153Z /home/runner/work/thewebspider/thewebspider/scraper.py:10: FutureWarning: 
+scrape	Run Scraper	2026-02-20T20:33:44.0964927Z 
+scrape	Run Scraper	2026-02-20T20:33:44.0965520Z All support for the `google.generativeai` package has ended. It will no longer be receiving 
+scrape	Run Scraper	2026-02-20T20:33:44.0966747Z updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+scrape	Run Scraper	2026-02-20T20:33:44.0967469Z See README for more details:
+scrape	Run Scraper	2026-02-20T20:33:44.0967680Z 
+scrape	Run Scraper	2026-02-20T20:33:44.0968008Z https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+scrape	Run Scraper	2026-02-20T20:33:44.0968452Z 
+scrape	Run Scraper	2026-02-20T20:33:44.0968578Z   import google.generativeai as genai
+scrape	Run Scraper	2026-02-20T20:33:55.2135772Z Found 1 monitors to process
+scrape	Run Scraper	2026-02-20T20:33:55.2136375Z Starting Scrape for: https://eng.asu.edu.eg/ (Deep Crawl: False)
+scrape	Run Scraper	2026-02-20T20:33:55.2136847Z   -> Scraping: https://eng.asu.edu.eg/ (1/1)
+scrape	Run Scraper	2026-02-20T20:33:55.2137235Z No changes on https://eng.asu.edu.eg/
+scrape	Post Set up Python	∩╗┐2026-02-20T20:33:55.7927833Z Post job cleanup.
+scrape	Post Checkout Code	∩╗┐2026-02-20T20:33:55.9721612Z Post job cleanup.
+scrape	Post Checkout Code	2026-02-20T20:33:56.0695408Z [command]/usr/bin/git version
+scrape	Post Checkout Code	2026-02-20T20:33:56.0733184Z git version 2.52.0
+scrape	Post Checkout Code	2026-02-20T20:33:56.0777049Z Temporarily overriding HOME='/home/runner/work/_temp/bb2434d1-1a7b-44bc-8f8f-301018e110c6' before making global git config changes
+scrape	Post Checkout Code	2026-02-20T20:33:56.0778393Z Adding repository directory to the temporary git global config as a safe directory
+scrape	Post Checkout Code	2026-02-20T20:33:56.0783060Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/thewebspider/thewebspider
+scrape	Post Checkout Code	2026-02-20T20:33:56.0820856Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+scrape	Post Checkout Code	2026-02-20T20:33:56.0853993Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+scrape	Post Checkout Code	2026-02-20T20:33:56.1092550Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+scrape	Post Checkout Code	2026-02-20T20:33:56.1115782Z http.https://github.com/.extraheader
+scrape	Post Checkout Code	2026-02-20T20:33:56.1128661Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+scrape	Post Checkout Code	2026-02-20T20:33:56.1159073Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+scrape	Post Checkout Code	2026-02-20T20:33:56.1384385Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+scrape	Post Checkout Code	2026-02-20T20:33:56.1417909Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+scrape	Complete job	∩╗┐2026-02-20T20:33:56.1766928Z Cleaning up orphan processes

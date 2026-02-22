@@ -38,6 +38,7 @@ export class Dashboard {
             card.className = 'monitor-card animate-fade-in';
             card.innerHTML = `
                 <a href="${monitor.url}" target="_blank" class="monitor-url">${monitor.url}</a>
+                ${monitor.ai_focus_note ? `<div class="ai-focus-badge mb-2"><small><strong>🧠 AI Focus:</strong> ${monitor.ai_focus_note}</small></div>` : ''}
                 <div class="monitor-status">
                     <span class="badge-active">● Active</span>
                     <span class="text-secondary ml-2">Updated: ${new Date(monitor.last_updated_timestamp).toLocaleDateString()}</span>
@@ -48,6 +49,7 @@ export class Dashboard {
                 </div>
                 <div class="monitor-footer">
                     <div class="text-secondary" style="font-size: 0.75rem; display: flex; align-items: center; gap: 8px;">
+                        ${monitor.deep_crawl ? `<span>🕷️ Depth: ${monitor.deep_crawl_depth || 1}</span>` : ''}
                         ${monitor.requires_login ? '<span>🔑 Login</span>' : ''} 
                         ${monitor.has_captcha ? '<span>🍪 Cookies</span>' : ''}
                         ${monitor.email_notifications_enabled ? '<span style="display:flex; align-items:center; gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</span>' : ''}

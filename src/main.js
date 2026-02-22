@@ -23,7 +23,10 @@ const monitorLimitWarning = document.getElementById('monitor-limit-warning');
 const monitorModal = document.getElementById('monitor-modal');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const addMonitorForm = document.getElementById('add-monitor-form');
+const aiFocusNoteInput = document.getElementById('ai-focus-note');
 const deepCrawlCheck = document.getElementById('deep-crawl');
+const deepCrawlOptions = document.getElementById('deep-crawl-options');
+const deepCrawlDepthInput = document.getElementById('deep-crawl-depth');
 const deepCrawlAlert = document.getElementById('deep-crawl-alert');
 const requiresLoginCheck = document.getElementById('requires-login');
 const loginFields = document.getElementById('login-fields');
@@ -155,6 +158,7 @@ deepCrawlCheck.addEventListener('click', (e) => {
         deepCrawlModal.style.display = 'flex';
     } else {
         // User clicked to disable. Let it happen and hide the alert.
+        deepCrawlOptions.style.display = 'none';
         deepCrawlAlert.style.display = 'none';
     }
 });
@@ -165,6 +169,7 @@ cancelDeepCrawlBtn.addEventListener('click', hideDeepCrawlModal);
 
 confirmDeepCrawlBtn.addEventListener('click', () => {
     deepCrawlCheck.checked = true;
+    deepCrawlOptions.style.display = 'block';
     deepCrawlAlert.style.display = 'block';
     hideDeepCrawlModal();
 });
@@ -267,7 +272,9 @@ addMonitorForm.addEventListener('submit', async (e) => {
     const formData = {
         user_email: userProfile.email,
         url: document.getElementById('target-url').value,
+        ai_focus_note: aiFocusNoteInput ? aiFocusNoteInput.value.trim() : '',
         deep_crawl: deepCrawlCheck.checked,
+        deep_crawl_depth: deepCrawlDepthInput ? parseInt(deepCrawlDepthInput.value, 10) : 1,
         requires_login: requiresLoginCheck.checked,
         username: document.getElementById('username').value,
         password: document.getElementById('password').value,
@@ -297,6 +304,7 @@ addMonitorForm.addEventListener('submit', async (e) => {
         loginFields.style.display = 'none';
         captchaFields.style.display = 'none';
         telegramFields.style.display = 'none';
+        deepCrawlOptions.style.display = 'none';
         deepCrawlAlert.style.display = 'none';
 
         if (telegramPollingInterval) clearInterval(telegramPollingInterval);

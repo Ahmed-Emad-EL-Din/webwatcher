@@ -98,6 +98,14 @@
                     <input type="url" id="target-url" placeholder="https://example.com/page-to-watch" required>
                 </div>
 
+                <div class="form-group mb-3">
+                    <label for="ai-focus-note">🧠 AI Focus Note <span class="text-secondary"
+                            style="font-weight:normal; font-size:0.85em;">(Optional)</span></label>
+                    <textarea id="ai-focus-note" rows="2"
+                        placeholder="E.g., Notify me when a new assignment for the slides is uploaded, or when a new quiz is available."></textarea>
+                    <small class="text-secondary">Tell the AI what specific changes you care about.</small>
+                </div>
+
                 <div class="form-checkbox-group mb-3">
                     <label class="checkbox-container">
                         <input type="checkbox" id="deep-crawl">
@@ -107,9 +115,19 @@
                     </label>
                 </div>
 
+                <div id="deep-crawl-options" class="form-sub-section animate-slide-down mb-3" style="display: none;">
+                    <div class="form-group">
+                        <label for="deep-crawl-depth">Crawl Depth Limit (1-5)</label>
+                        <input type="number" id="deep-crawl-depth" min="1" max="5" value="2"
+                            style="width: 100px; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.2); color: white;">
+                        <small class="text-secondary d-block mt-1">Level 1 = just the Target URL. Level 2 = Target URL +
+                            all links directly on it, etc.</small>
+                    </div>
+                </div>
+
                 <div id="deep-crawl-alert" class="alert alert-danger mb-3 animate-slide-down" style="display: none;">
                     <strong>HIGH ALERT:</strong> Deep Crawl instructs the bot to recursively click all links on the same
-                    domain up to 20 pages. This runs a heavy operation. Use sparingly!
+                    domain up to the specified depth. This runs a heavy operation. Use sparingly!
                 </div>
 
                 <div class="form-checkbox-group mb-3">
@@ -203,10 +221,10 @@
             </div>
             <p class="mb-3">
                 <strong>Deep Crawl</strong> instructs the bot to recursively visit all internal links on the website up
-                to 20 pages.
+                to the specified depth.
             </p>
             <p class="mb-4 text-secondary" style="font-size: 0.95em;">
-                Crawling will recursively interact with up to 20 pages on the target site. This carries a <strong>very
+                Crawling will recursively interact with pages on the target site. This carries a <strong>very
                     high risk of triggering unintended actions</strong>—such as automatically clicking "Delete", "Log
                 Out", or submitting forms—if the bot wanders into interactive elements. Do not use this on authenticated
                 dashboards where random clicking could cause permanent data loss!
